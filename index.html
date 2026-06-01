@@ -1060,6 +1060,165 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* QURAN AUDIO PLAYER CARD IN HERO */
+  .hero-player-container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 1.75rem;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.35s forwards;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  :root.light-mode .hero-player-container {
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .hp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hp-title-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hp-icon-wrapper {
+    font-size: 20px;
+    background: rgba(79, 140, 255, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+
+  .hp-meta {
+    text-align: left;
+  }
+
+  .hp-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+  }
+
+  .hp-reciter {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .hp-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hp-play-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, opacity 0.2s;
+    flex-shrink: 0;
+  }
+
+  .hp-play-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  .hp-progress-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hp-time {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: monospace;
+    width: 30px;
+    text-align: center;
+  }
+
+  .hp-slider-container {
+    flex-grow: 1;
+    height: 6px;
+    background: var(--border2);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hp-slider-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    width: 0%;
+  }
+
+  .hp-volume-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hp-vol-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .hp-vol-btn:hover {
+    opacity: 1;
+  }
+
+  .hp-vol-slider-container {
+    width: 60px;
+    height: 4px;
+    background: var(--border2);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hp-vol-slider-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 80%;
+  }
 </style>
 </head>
 <body>
@@ -1105,6 +1264,49 @@
       <p class="hero-sub">
         Flutter developer building <strong>mobile, Windows desktop</strong> and <strong>web apps</strong> — clean architecture, real backends, delivered to real clients.
       </p>
+
+      <!-- QURAN AUDIO PLAYER CARD -->
+      <div class="hero-player-container">
+        <div class="hp-header">
+          <div class="hp-title-info">
+            <div class="hp-icon-wrapper">📖</div>
+            <div class="hp-meta">
+              <div class="hp-title">سورة طه</div>
+              <div class="hp-reciter">القارئ فارس عباد</div>
+            </div>
+          </div>
+          <audio id="hero-audio" src="https://server8.mp3quran.net/frs_a/020.mp3" preload="none"></audio>
+        </div>
+        <div class="hp-controls">
+          <button id="hp-play-btn" class="hp-play-btn" aria-label="Play">
+            <!-- Play icon -->
+            <svg class="hp-play-icon" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <!-- Pause icon -->
+            <svg class="hp-pause-icon" width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          
+          <div class="hp-progress-wrapper">
+            <span id="hp-current-time" class="hp-time">00:00</span>
+            <div id="hp-progress-container" class="hp-slider-container">
+              <div id="hp-progress-fill" class="hp-slider-fill"></div>
+            </div>
+            <span id="hp-duration" class="hp-time">00:00</span>
+          </div>
+
+          <div class="hp-volume-wrapper">
+            <button id="hp-volume-btn" class="hp-vol-btn" aria-label="Mute">
+              <!-- Speaker icon -->
+              <svg class="hp-speaker-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              <!-- Mute icon -->
+              <svg class="hp-mute-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/></svg>
+            </button>
+            <div id="hp-volume-container" class="hp-vol-slider-container" title="Volume">
+              <div id="hp-volume-fill" class="hp-vol-slider-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
@@ -2246,6 +2448,103 @@
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
     if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+
+  // Hero Quran Player Controls
+  const hpAudio = document.getElementById('hero-audio');
+  const hpPlayBtn = document.getElementById('hp-play-btn');
+  const hpPlayIcon = hpPlayBtn.querySelector('.hp-play-icon');
+  const hpPauseIcon = hpPlayBtn.querySelector('.hp-pause-icon');
+  const hpCurrentTime = document.getElementById('hp-current-time');
+  const hpDuration = document.getElementById('hp-duration');
+  const hpProgressContainer = document.getElementById('hp-progress-container');
+  const hpProgressFill = document.getElementById('hp-progress-fill');
+  const hpVolumeBtn = document.getElementById('hp-volume-btn');
+  const hpSpeakerIcon = hpVolumeBtn.querySelector('.hp-speaker-icon');
+  const hpMuteIcon = hpVolumeBtn.querySelector('.hp-mute-icon');
+  const hpVolumeContainer = document.getElementById('hp-volume-container');
+  const hpVolumeFill = document.getElementById('hp-volume-fill');
+
+  let lastVolume = 0.8;
+  hpAudio.volume = lastVolume;
+
+  function formatTime(secs) {
+    if (isNaN(secs)) return '00:00';
+    const m = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  }
+
+  hpPlayBtn.addEventListener('click', () => {
+    if (hpAudio.paused) {
+      hpAudio.play();
+      hpPlayIcon.style.display = 'none';
+      hpPauseIcon.style.display = 'block';
+    } else {
+      hpAudio.pause();
+      hpPlayIcon.style.display = 'block';
+      hpPauseIcon.style.display = 'none';
+    }
+  });
+
+  hpAudio.addEventListener('loadedmetadata', () => {
+    hpDuration.textContent = formatTime(hpAudio.duration);
+  });
+
+  hpAudio.addEventListener('timeupdate', () => {
+    if (!isNaN(hpAudio.duration)) {
+      hpDuration.textContent = formatTime(hpAudio.duration);
+      const pct = (hpAudio.currentTime / hpAudio.duration) * 100;
+      hpProgressFill.style.width = `${pct}%`;
+      hpCurrentTime.textContent = formatTime(hpAudio.currentTime);
+    }
+  });
+
+  hpAudio.addEventListener('ended', () => {
+    hpPlayIcon.style.display = 'block';
+    hpPauseIcon.style.display = 'none';
+    hpProgressFill.style.width = '0%';
+    hpCurrentTime.textContent = '00:00';
+  });
+
+  hpProgressContainer.addEventListener('click', (e) => {
+    const rect = hpProgressContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    if (hpAudio.duration) {
+      hpAudio.currentTime = (clickX / width) * hpAudio.duration;
+    }
+  });
+
+  hpVolumeBtn.addEventListener('click', () => {
+    if (hpAudio.volume > 0) {
+      lastVolume = hpAudio.volume;
+      setVolume(0);
+    } else {
+      setVolume(lastVolume);
+    }
+  });
+
+  function setVolume(pct) {
+    if (pct < 0) pct = 0;
+    if (pct > 1) pct = 1;
+    hpAudio.volume = pct;
+    hpVolumeFill.style.width = `${pct * 100}%`;
+    if (pct === 0) {
+      hpSpeakerIcon.style.display = 'none';
+      hpMuteIcon.style.display = 'block';
+    } else {
+      hpSpeakerIcon.style.display = 'block';
+      hpMuteIcon.style.display = 'none';
+      lastVolume = pct;
+    }
+  }
+
+  hpVolumeContainer.addEventListener('click', (e) => {
+    const rect = hpVolumeContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const pct = clickX / rect.width;
+    setVolume(pct);
   });
 </script>
 

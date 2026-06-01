@@ -695,6 +695,219 @@
     .platforms-bar { padding: 1rem 1.25rem; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
   }
+
+  /* GALLERY & TAB STYLES */
+  .gallery-tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+  .gallery-tab {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .gallery-tab:hover {
+    color: var(--text);
+  }
+  .gallery-tab.active {
+    color: var(--accent);
+  }
+  .gallery-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+
+  .gallery-container {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+  }
+  .gallery-container.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .gallery-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: zoom-in;
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .gallery-card-img-container {
+    position: relative;
+    background: #13131a;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+  .gallery-card-img-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+  }
+  .gallery-card:hover .gallery-card-img-container img {
+    transform: scale(1.03);
+  }
+
+  /* LIGHTBOX MODAL STYLES */
+  .lightbox-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 2rem;
+  }
+  .lightbox-modal.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+  .lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+  }
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--border2);
+    object-fit: contain;
+  }
+  .lightbox-caption {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--text);
+    max-width: 600px;
+  }
+  .lightbox-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .lightbox-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .lightbox-close:hover {
+    color: var(--accent);
+  }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .lightbox-nav:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .lightbox-prev {
+    left: -70px;
+  }
+  .lightbox-next {
+    right: -70px;
+  }
+
+  @media (max-width: 900px) {
+    .lightbox-prev {
+      left: 10px;
+      top: auto;
+      bottom: -60px;
+      transform: none;
+    }
+    .lightbox-next {
+      right: 10px;
+      top: auto;
+      bottom: -60px;
+      transform: none;
+    }
+    .lightbox-caption {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .lightbox-close {
+      right: 10px;
+      top: -35px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -781,161 +994,543 @@
 
     <div class="stats-row">
       <div class="stat-cell">
-        <div class="stat-num">6<span class="stat-unit">+</span></div>
-        <div class="stat-label">Shipped projects</div>
+        <div class="stat-num">1<span class="stat-unit"> Fully Integrated SaaS</span></div>
+        <div class="stat-label">Production Ready System</div>
       </div>
       <div class="stat-cell">
         <div class="stat-num">3</div>
-        <div class="stat-label">Platforms</div>
+        <div class="stat-label">Cross-Platforms Connected</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">2<span class="stat-unit">+</span></div>
-        <div class="stat-label">Years experience</div>
+        <div class="stat-num">Real-time</div>
+        <div class="stat-label">Live Data Stream</div>
       </div>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-grid" style="grid-template-columns: 1fr;">
 
-      <!-- Featured -->
-      <div class="project-card featured">
-        <div>
+      <!-- Featured Master SaaS Platform -->
+      <div class="project-card featured" style="display: flex; flex-direction: column; gap: 2rem;">
+        <div style="width: 100%;">
           <div class="featured-badge">
             <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            Featured Project
+            Featured Production SaaS Platform
           </div>
-          <div class="project-icon" style="background:rgba(79,140,255,0.1)">🧺</div>
+          <div class="project-icon" style="background:rgba(79,140,255,0.1); margin-top: 1rem;">🧺</div>
           <div class="project-header-row">
             <div>
-              <div class="project-name">Diamond Clean</div>
-              <div class="project-type">Laundry Management System</div>
+              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Laundry SaaS Platform</div>
+              <div class="project-type" style="color: var(--accent); font-weight: 500;">Multi-Tenant Laundry Ecosystem</div>
             </div>
-            <span class="platform-pill pill-multi">Mobile + Web</span>
+            <span class="platform-pill pill-multi">Super Admin Web + Cashier Panel + Delivery Mobile App</span>
           </div>
-          <p class="project-desc">
-            Full-stack laundry solution — a Flutter mobile app for drivers and a Flutter Web admin dashboard sharing a single Firebase backend. Includes treasury/cashier management, order tracking, and real-time sync.
+          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
+            منظومة برمجية متكاملة (SaaS) لإدارة المغاسل بمختلف الفروع والعملاء، مصممة بهندسة برمجية صارمة تعتمد على البث المباشر للطلبات والتحكم الكامل في الصلاحيات والمستندات.
           </p>
-          <div class="project-tags">
-            <span class="tag">Flutter Mobile</span>
-            <span class="tag">Flutter Web</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">Cubit</span>
-            <span class="tag">go_router</span>
-            <span class="tag">Firebase Hosting</span>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">👑 Super Admin Dashboard</h4>
+              <p style="font-size: 14px; color: var(--muted);">لوحة تحكم برمجية شاملة لإدارة كافة المغاسل المشتركة، تتيح التحكم الكامل في خطط الاشتراكات وفترات الصلاحية لكل مغسلة بشكل منفصل وآمن تماماً.</p>
+            </div>
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">💻 Cashier & Owner Web View</h4>
+              <p style="font-size: 14px; color: var(--muted);">لوحة الكاشير والمالك لمتابعة الطلبات عبر بث مباشر مستمر (Live Stream)؛ تظهر الطلبات وتتحدث فوراً بمجرد اتخاذ أي إجراء من المندوب دون الحاجة لتحديث الصفحة.</p>
+            </div>
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">📱 Delivery Agent Mobile App</h4>
+              <p style="font-size: 14px; color: var(--muted);">تطبيق المندوب الميداني لاستلام الأصناف من العملاء وتحديدها، مع ميزة توليد الفواتير وإرسالها فوراً للعميل مباشرة عبر تطبيق WhatsApp بشكل تلقائي.</p>
+            </div>
           </div>
-        </div>
-        <div class="featured-right">
-          <div class="featured-highlight">
-            <div class="highlight-label">ARCHITECTURE</div>
-            <div class="highlight-value">Clean 2-Layer · Repository → Cubit</div>
-          </div>
-          <div class="featured-highlight">
-            <div class="highlight-label">KEY FEATURE</div>
-            <div class="highlight-value">Treasury & Cashier Dashboard</div>
-          </div>
-          <div class="featured-highlight">
-            <div class="highlight-label">DEPLOYMENT</div>
-            <div class="highlight-value">Firebase Hosting · CI/CD GitHub Actions</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- El Amal Clean -->
-      <div class="project-card">
-        <div class="project-icon" style="background:rgba(34,211,176,0.1)">🎓</div>
-        <div class="project-header-row">
-          <div>
-            <div class="project-name">El Amal Clean</div>
-            <div class="project-type">Graduation Project</div>
+          <div class="project-tags" style="margin-bottom: 2rem;">
+            <span class="tag" style="background: rgba(79,140,255,0.1); color: var(--accent);">Flutter (Mobile/Web/Desktop)</span>
+            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit State Management</span>
+            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Firebase Core & Auth</span>
+            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Cloud Firestore Real-time Streams</span>
+            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">WhatsApp Native Integration</span>
+            <span class="tag" style="background: rgba(244,114,182,0.1); color: var(--pink);">Clean Architecture</span>
+            <span class="tag">Flutter Secure Storage</span>
+            <span class="tag">url_launcher</span>
           </div>
-          <span class="platform-pill pill-windows">Windows</span>
         </div>
-        <p class="project-desc">Windows desktop laundry management system. Offline-first with Isar local DB and Firebase Firestore sync. Full RTL Arabic UI with role-based access.</p>
-        <div class="project-tags">
-          <span class="tag">Flutter Desktop</span>
-          <span class="tag">Isar DB</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">Offline-first</span>
-          <span class="tag">RTL Arabic</span>
-        </div>
-      </div>
 
-      <!-- VIP Clean -->
-      <div class="project-card">
-        <div class="project-icon" style="background:rgba(124,92,252,0.1)">🪣</div>
-        <div class="project-header-row">
-          <div>
-            <div class="project-name">VIP Clean</div>
-            <div class="project-type">Carpet Laundry System · Client</div>
+        <!-- Screenshots Showcase Area with responsive mockups -->
+        <div style="width: 100%;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Application Mockups & Previews</h4>
+          
+          <!-- Tab Switcher -->
+          <div class="gallery-tabs">
+            <button class="gallery-tab active" data-tab="super-admin">👑 Super Admin Panel (Dark)</button>
+            <button class="gallery-tab" data-tab="cashier">💻 Cashier Dashboard (Light)</button>
+            <button class="gallery-tab" data-tab="delivery">📱 Delivery Agent App (Mobile)</button>
           </div>
-          <span class="platform-pill pill-windows">Windows</span>
-        </div>
-        <p class="project-desc">Windows desktop carpet laundry management delivered to a client. Integrated thermal receipt printing via ESC/POS raster over direct USB port. Admin/Staff role-based access.</p>
-        <div class="project-tags">
-          <span class="tag">Flutter Desktop</span>
-          <span class="tag">Thermal Printing</span>
-          <span class="tag">ESC/POS USB</span>
-          <span class="tag">Role-based Auth</span>
-        </div>
-      </div>
 
-      <!-- Kimo Clean -->
-      <div class="project-card">
-        <div class="project-icon" style="background:rgba(245,166,35,0.1)">👕</div>
-        <div class="project-header-row">
-          <div>
-            <div class="project-name">Kimo Clean</div>
-            <div class="project-type">Client Android App</div>
+          <!-- Super Admin Panel Tab Grid -->
+          <div id="super-admin" class="gallery-container active">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">super_admin_dashboard.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/super_admin_dashboard.png" alt="Super Admin Dashboard Panel">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">لوحة تحكم المدير العام (SaaS Admin Panel)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">إدارة جميع المغاسل المشتركة وتفعيل خطط الاشتراكات وفترات الصلاحية مع عرض إحصائيات عامة للنظام.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">add_laundry_modal.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/super_admin_add_laundry.png" alt="Add Laundry Popup Modal">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل مغسلة جديدة (Add Laundry Tenant)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة برمجية لتأمين إدخال كود Firebase، وربط المالك، والتحقق الآمن من الصلاحيات وربط أرقام الهواتف.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">add_cashier_modal.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/super_admin_add_cashier.png" alt="Add Cashier Modal Popup">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تعيين حساب كاشير (Add Tenant Cashier)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">نافذة إضافة الموظفين المسؤولين عن البيع داخل مغسلة معينة وربطهم برمجياً من خلال الـ Firebase UID.</div>
+              </div>
+            </div>
+
           </div>
-          <span class="platform-pill pill-android">Android</span>
-        </div>
-        <p class="project-desc">Android laundry app delivered to a client with manual APK distribution. APK size optimized with split-per-abi targeting arm64-v8a. ProGuard obfuscation and hardened Firebase security rules.</p>
-        <div class="project-tags">
-          <span class="tag">Flutter Android</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">APK Optimization</span>
-          <span class="tag">ProGuard</span>
-        </div>
-      </div>
 
-      <!-- Vaygoo -->
-      <div class="project-card">
-        <div class="project-icon" style="background:rgba(34,211,176,0.1)">✈️</div>
-        <div class="project-header-row">
-          <div>
-            <div class="project-name">Vaygoo</div>
-            <div class="project-type">Team Project</div>
+          <!-- Cashier Panel Tab Grid -->
+          <div id="cashier" class="gallery-container">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">cashier_order_details.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/cashier_order_details.png" alt="Cashier Order Details">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تفاصيل الفاتورة والطلب (Live Order Details)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة الكاشير التفاعلية لمتابعة تفاصيل العميل، الأصناف المختارة، الأسعار وإرسال الفاتورة عبر WhatsApp.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">cashier_sidebar_navigation.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/cashier_sidebar.png" alt="Cashier Sidebar Grid">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">قائمة التحكم والإدارة (Sidebar Control)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">لوحة كاملة تتيح التنقل بين الطلبات، قاعدة بيانات العملاء، تسعير الأصناف، المركبات والمندوبين، والخزينة.</div>
+              </div>
+            </div>
+
           </div>
-          <span class="platform-pill pill-android">Mobile</span>
-        </div>
-        <p class="project-desc">Collaborative Flutter project with Supabase backend and full Clean Architecture with Bloc. Contributed features including change password flow, withdraw request with atomic wallet transactions, and Git branching workflow.</p>
-        <div class="project-tags">
-          <span class="tag">Supabase</span>
-          <span class="tag">Bloc</span>
-          <span class="tag">Clean Architecture</span>
-          <span class="tag">Git Flow</span>
-        </div>
-      </div>
 
-      <!-- CPC Clean -->
-      <div class="project-card">
-        <div class="project-icon" style="background:rgba(79,140,255,0.1)">🔄</div>
-        <div class="project-header-row">
-          <div>
-            <div class="project-name">CPC Clean</div>
-            <div class="project-type">White-label · Client</div>
+          <!-- Delivery Agent App Tab Grid -->
+          <div id="delivery" class="gallery-container">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">delivery_home.jpg</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/delivery_home.jpg" alt="Delivery App Home Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">الشاشة الرئيسية للمندوب (Driver Home Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">لوحة المندوب السريعة للبحث الفوري عن العملاء برقم الهاتف أو الكود، وبدء تسجيل طلب جديد.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">delivery_new_order_1.jpg</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/delivery_new_order_1.jpg" alt="Delivery Register Order 1">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل طلب جديد — جزء 1 (Register Order - Client & Items)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">إدخال بيانات العميل (الهاتف، الاسم، العنوان) وتحديد كميات الأصناف المراد استلامها تفصيلياً.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">delivery_new_order_2.jpg</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/delivery_new_order_2.jpg" alt="Delivery Register Order 2">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل طلب جديد — جزء 2 (Register Order - Finalize & Invoice)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تأكيد تفاصيل الطلب وتوليد الفاتورة مع ميزة إرسالها تلقائياً للعميل برابط فوري عبر WhatsApp.</div>
+              </div>
+            </div>
+
+          </div> <!-- End of delivery gallery container -->
+        </div> <!-- End of Laundry SaaS screenshots showcase -->
+      </div> <!-- End of Laundry SaaS featured project card -->
+
+      <!-- Featured Mobile App Project: Bookia Store -->
+      <div class="project-card featured" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(124,92,252,0.25);">
+        <div style="width: 100%;">
+          <div class="featured-badge" style="background: rgba(124,92,252,0.12); color: var(--accent2); border-color: rgba(124,92,252,0.2);">
+            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Featured Mobile App Project
           </div>
-          <span class="platform-pill pill-android">Android</span>
-        </div>
-        <p class="project-desc">White-label fork of Kimo Clean rebranded for a second laundry client — full app rename, new bundle ID, and Firebase project reconfiguration.</p>
-        <div class="project-tags">
-          <span class="tag">Flutter Android</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">White-label</span>
-          <span class="tag">Rebrand</span>
-        </div>
-      </div>
+          <div class="project-icon" style="background:rgba(124,92,252,0.1); margin-top: 1rem;">📚</div>
+          <div class="project-header-row">
+            <div>
+              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Bookia Store</div>
+              <div class="project-type" style="color: var(--accent2); font-weight: 500;">Production-Style Bookstore App</div>
+            </div>
+            <span class="platform-pill pill-multi" style="background: rgba(124,92,252,0.1); color: var(--accent2);">Flutter iOS + Android Mobile App</span>
+          </div>
+          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
+            تطبيق متكامل لبيع وتصفح الكتب بالهاتف المحمول مصمم بهندسة برمجية متكاملة (Feature-First + Clean Architecture)؛ يضم رحلة مصادقة مؤمنة بالكامل ومتجر كتب تفاعلي متصل بخوادم REST APIs ومزود بميزات السلة والمفضلة وحلول تخزين محلية وتحريكات متقدمة.
+          </p>
 
-    </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔌 REST APIs Integration</h4>
+              <p style="font-size: 14px; color: var(--muted);">اتصال كامل بخادم متجر الكتب لإرسال واستقبال البيانات ومعالجة طلبات السلة والمفضلة والمصادقة بالاعتماد على مكتبة <code>Dio</code>.</p>
+            </div>
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔐 Secure Storage & Caching</h4>
+              <p style="font-size: 14px; color: var(--muted);">تخزين جلسات دخول العملاء والبيانات الحساسة محلياً بشكل مشفر بـ <code>flutter_secure_storage</code> وحفظ الإعدادات بـ <code>shared_preferences</code>.</p>
+            </div>
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">✨ Premium UX & Animations</h4>
+              <p style="font-size: 14px; color: var(--muted);">توفير تجربة مستخدم سلسة وحركات ذكية بالاعتماد على تحريكات <code>Rive</code> التفاعلية ومؤشرات تحميل هيكلية <code>Skeletonizer</code>.</p>
+            </div>
+          </div>
+
+          <!-- Dependencies and Architecture YAML Card -->
+          <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+            <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
+              </div>
+              <span style="font-size: 11px; color: var(--accent2); background: rgba(124,92,252,0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Dependencies Specs</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+              <!-- Code Section -->
+              <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
+                <span style="color: #f7768e;">dependencies:</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">cupertino_icons:</span> <span style="color: #e0af68;">^1.0.8</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.2.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_gen:</span> <span style="color: #e0af68;">^5.12.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_svg:</span> <span style="color: #e0af68;">^2.2.3</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">pinput:</span> <span style="color: #e0af68;">^6.0.2</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">dio:</span> <span style="color: #e0af68;">^5.9.1</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">shared_preferences:</span> <span style="color: #e0af68;">^2.5.4</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_secure_storage:</span> <span style="color: #e0af68;">^10.0.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">carousel_slider:</span> <span style="color: #e0af68;">^5.1.2</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">smooth_page_indicator:</span> <span style="color: #e0af68;">^2.0.1</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">meta:</span> <span style="color: #e0af68;">^1.17.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">skeletonizer:</span> <span style="color: #e0af68;">^2.1.3</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">rive:</span> <span style="color: #e0af68;">^0.14.4</span><br>
+                <span style="color: #f7768e;">dev_dependencies:</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_native_splash:</span> <span style="color: #e0af68;">^2.4.7</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_test:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_lints:</span> <span style="color: #e0af68;">^6.0.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">build_runner:</span> <span style="color: #e0af68;">^2.11.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_gen_runner:</span> <span style="color: #e0af68;">^5.12.0</span>
+              </div>
+              
+              <!-- Explanation Section -->
+              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
+                <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Dependencies Explained</h5>
+                <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
+                  <li><strong>Dio (v5.9.1):</strong> إرسال طلبات الـ HTTP والتعامل مع الـ Interceptors وإدارة اتصالات الـ REST APIs.</li>
+                  <li><strong>Bloc & Flutter Bloc (v9.x):</strong> فصل منطق الأعمال (Business Logic) وإدارة الحالة بنمط Cubits بشكل متكامل ومنظم.</li>
+                  <li><strong>Skeletonizer (v2.1.3):</strong> إظهار مؤشرات تحميل هيكلية (Shimmer) تلقائية وجذابة متلائمة مع حجم العناصر أثناء جلب البيانات.</li>
+                  <li><strong>Local Storage (SharedPreferences & Secure Storage):</strong> التخزين المحلي الآمن لبيانات الدخول المشفرة والتوكنز والإعدادات الأساسية.</li>
+                  <li><strong>easy_localization (v3.0.8):</strong> دعم اللغتين العربية والإنجليزية بشكل ديناميكي مع تغيير اتجاه التطبيق بالكامل.</li>
+                  <li><strong>Pinput (v6.0.2):</strong> حقل إدخال كود التحقق (OTP) مخصص وذو استجابة سلسة مدعوم بالتحقق التلقائي.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-tags" style="margin-bottom: 2rem;">
+            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">Flutter Mobile (iOS/Android)</span>
+            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit State Management</span>
+            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Clean + Feature-First Architecture</span>
+            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">REST APIs Integration (Dio)</span>
+            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">easy_localization (Ar/En)</span>
+            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">flutter_screenutil</span>
+            <span class="tag">Secure Storage & SharedPreferences</span>
+            <span class="tag">Skeletonizer (Shimmer Loaders)</span>
+            <span class="tag">Pinput (OTP fields)</span>
+            <span class="tag">Carousel Slider & Smooth Indicators</span>
+            <span class="tag">Rive & Native Splash Animations</span>
+          </div>
+        </div>
+
+        <!-- Bookia Screenshots Showcase Area -->
+        <div style="width: 100%;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Bookia Mobile Application Journey</h4>
+
+          <!-- Tab Switcher for Bookia -->
+          <div class="gallery-tabs">
+            <button class="gallery-tab active" data-tab="bookia-welcome">👋 Entry & Onboarding</button>
+            <button class="gallery-tab" data-tab="bookia-login">🔑 Login & Register</button>
+            <button class="gallery-tab" data-tab="bookia-verification">🛡️ Password Recovery & OTP</button>
+            <button class="gallery-tab" data-tab="bookia-shop">🏠 Core Shop Features (API)</button>
+          </div>
+
+          <!-- Tab 1: Entry & Onboarding -->
+          <div id="bookia-welcome" class="gallery-container active">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_splash.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step1_splash.png" alt="Bookia Splash Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">شاشة التشغيل الترحيبية (Splash Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">شاشة الدخول الأولى للتحقق من تهيئة التطبيق وعرض الشعار بأسلوب بسيط وجذاب.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_welcome.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step2_welcome.png" alt="Bookia Welcome Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">شاشة الترحيب (Welcome Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ترحيبية مصقولة تتيح للمستخدم الاختيار المباشر بين تسجيل الدخول أو إنشاء حساب جديد.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tab 2: Login & Register -->
+          <div id="bookia-login" class="gallery-container">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_login.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step3_login.png" alt="Bookia Login Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل الدخول (Login Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة تسجيل الدخول مع حقول إدخال آمنة لكلمة المرور وربط بريد العميل الإلكتروني وخيارات الدخول البديلة.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_register.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step4_register.png" alt="Bookia Register Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">إنشاء حساب جديد (Register Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة تسجيل متكاملة للعملاء الجدد تطلب البريد، الاسم، وتأكيد كلمة المرور بشكل متناسق وسلس.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tab 3: Password Recovery & OTP -->
+          <div id="bookia-verification" class="gallery-container">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_forgot_password.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step5_forgot.png" alt="Bookia Forgot Password">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">نسيان كلمة المرور (Forgot Password)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة إدخال البريد الإلكتروني لإرسال كود التحقق الأمني وإعادة تعيين الحساب.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_otp.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step6_otp.png" alt="Bookia OTP Verification">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">التحقق بالـ OTP (OTP Verification)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة التحقق من الرمز المكون من 4 أرقام لتأمين استعادة الحساب وتفعيله.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_reset_password.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step7_reset.png" alt="Bookia Create New Password">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تعيين كلمة مرور جديدة (Create New Password)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">حقول إدخال وتأكيد كلمة المرور الجديدة للتحقق وتخطي المرحلة الأمنية وحفظ التغييرات.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_changed_success.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_step8_changed.png" alt="Bookia Password Changed Success">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تأكيد نجاح التغيير (Password Changed)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">شاشة تأكيد نجاح إعادة تعيين الحساب بنجاح وإمكانية تسجيل الدخول الفوري بكلمة المرور الجديدة.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tab 4: Core Shop Features (API) -->
+          <div id="bookia-shop" class="gallery-container">
+            
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_home.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_home.png" alt="Bookia Home Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">شاشة المتجر الرئيسية (Bookstore Home Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تصفح الكتب الأكثر مبيعاً (Best Seller)، الكتب الحديثة، التمرير بين الإعلانات (Carousel Slider)، والتنقل عبر شريط التنقل السفلي.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_wishlist.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_wishlist.png" alt="Bookia Wishlist Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">شاشة المفضلة (Wishlist Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">قائمة الكتب المفضلة للمستخدم مع إمكانية تصفح التفاصيل والتحقق من التوفر والأسعار.</div>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">bookia_cart.png</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/bookia_cart.png" alt="Bookia Cart Screen">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">سلة المشتريات (Cart Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">إدارة الكميات والكتب المختارة وحساب المجموع الكلي، مدعومة بمؤشرات تحميل هيكلية (Skeletonizer).</div>
+              </div>
+            </div>
+
+          </div> <!-- End of bookia-shop gallery container -->
+
+        </div> <!-- End of Bookia screenshots showcase area -->
+      </div> <!-- End of Bookia featured project card -->
+
+    </div> <!-- End of projects-grid -->
+
   </section>
 
   <!-- SKILLS -->
@@ -1070,6 +1665,108 @@
   <span>Mohamed Zidan · Flutter Developer · Cairo, Egypt</span>
   <span>© 2025</span>
 </footer>
+
+<!-- LIGHTBOX MODAL CONTAINER -->
+<div id="lightbox" class="lightbox-modal">
+  <div class="lightbox-content">
+    <button id="lightbox-close" class="lightbox-close">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev">&larr;</button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-next">&rarr;</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <div id="lightbox-title" class="lightbox-title"></div>
+      <div id="lightbox-desc" class="lightbox-desc"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scoped Tab Switchers per featured project card
+  const featuredProjects = document.querySelectorAll('.project-card.featured');
+  
+  featuredProjects.forEach(project => {
+    const tabs = project.querySelectorAll('.gallery-tab');
+    const grids = project.querySelectorAll('.gallery-container');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        grids.forEach(g => g.classList.remove('active'));
+
+        tab.classList.add('active');
+        const targetGrid = project.querySelector(`#${tab.dataset.tab}`);
+        if (targetGrid) {
+          targetGrid.classList.add('active');
+        }
+      });
+    });
+  });
+
+  // Lightbox Modal
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+
+  // Collect all gallery items in their document order
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-card'));
+  let currentIndex = 0;
+
+  function showImage(index) {
+    if (index < 0) index = galleryItems.length - 1;
+    if (index >= galleryItems.length) index = 0;
+    currentIndex = index;
+
+    const item = galleryItems[currentIndex];
+    const img = item.querySelector('img');
+    const title = item.querySelector('.gallery-card-title').textContent;
+    const desc = item.querySelector('.gallery-card-desc').textContent;
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxTitle.textContent = title;
+    lightboxDesc.textContent = desc;
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      showImage(index);
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Disable scroll
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; // Enable scroll
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+</script>
 
 </body>
 </html>

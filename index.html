@@ -7,1219 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    /* Dark Mode variables (default) */
-    --bg: #06060a;
-    --bg2: #0e0e14;
-    --bg3: #13131c;
-    --border: rgba(255, 255, 255, 0.06);
-    --border2: rgba(255, 255, 255, 0.12);
-    --text: #f3f3fb;
-    --muted: #8e8ea6;
-    --accent: #4f8cff;
-    --accent2: #7c5cfc;
-    --teal: #22d3b0;
-    --amber: #f5a623;
-    --pink: #f472b6;
-    --green: #4ade80;
-    --card-shadow: rgba(0, 0, 0, 0.4);
-    --nav-bg: rgba(6, 6, 10, 0.85);
-  }
-
-  :root.light-mode {
-    /* Light Mode variables */
-    --bg: #f8f9fa;
-    --bg2: #ffffff;
-    --bg3: #f1f3f5;
-    --border: rgba(0, 0, 0, 0.08);
-    --border2: rgba(0, 0, 0, 0.15);
-    --text: #212529;
-    --muted: #6c757d;
-    --accent: #1971c2;
-    --accent2: #5c3eaf;
-    --teal: #087f5b;
-    --amber: #d9480f;
-    --pink: #c2255c;
-    --green: #2b8a3e;
-    --card-shadow: rgba(0, 0, 0, 0.04);
-    --nav-bg: rgba(248, 249, 250, 0.85);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.75;
-    min-height: 100vh;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.4s ease, color 0.4s ease;
-  }
-
-  /* noise overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* glow blobs */
-  .blob {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.12;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .blob-1 { width: 600px; height: 600px; background: var(--accent2); top: -200px; right: -200px; }
-  .blob-2 { width: 500px; height: 500px; background: var(--accent); bottom: 100px; left: -200px; }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 2.5rem;
-    background: var(--nav-bg);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    transition: background-color 0.4s ease, border-color 0.4s ease;
-  }
-
-  /* Theme Toggle Button */
-  .theme-toggle-btn {
-    background: none;
-    border: 1px solid var(--border2);
-    color: var(--text);
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-  }
-  .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--accent);
-  }
-  :root.light-mode .theme-toggle-btn:hover {
-    background: rgba(0, 0, 0, 0.04);
-  }
-  .sun-icon { display: none; }
-  .moon-icon { display: block; }
-  :root.light-mode .sun-icon { display: block; }
-  :root.light-mode .moon-icon { display: none; }
-
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--text); }
-
-  .nav-cta {
-    font-size: 13px;
-    padding: 8px 18px;
-    border-radius: 8px;
-    border: 1px solid var(--border2);
-    color: var(--text);
-    text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
-  }
-
-  .nav-cta:hover { background: rgba(255,255,255,0.06); border-color: var(--accent); }
-
-  main { position: relative; z-index: 1; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    padding: 8rem 2.5rem 4rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .hero-content {
-    flex: 1.2;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero-image-wrapper {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    flex: 0.8;
-    max-width: 340px;
-    aspect-ratio: 1/1;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.3s forwards;
-  }
-
-  .hero-image-glow {
-    position: absolute;
-    inset: -8px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    filter: blur(20px);
-    opacity: 0.3;
-    border-radius: 30px;
-    z-index: 0;
-    animation: rotateGlow 12s linear infinite;
-  }
-
-  @keyframes rotateGlow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  .hero-image-frame {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 2px solid var(--border2);
-    background: var(--bg2);
-    box-shadow: 0 20px 40px var(--card-shadow);
-    z-index: 1;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .hero-image-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .hero-image-wrapper:hover .hero-image-frame {
-    transform: translateY(-5px) scale(1.02);
-    border-color: var(--accent);
-  }
-
-  .hero-image-wrapper:hover .hero-image-frame img {
-    transform: scale(1.05);
-  }
-
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.1s forwards;
-  }
-
-  .status-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 10px var(--green);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  .eyebrow-text {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-
-  .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(52px, 8vw, 96px);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.2s forwards;
-  }
-
-  .hero-title .line2 {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-  }
-
-  .hero-title .accent { color: var(--accent); }
-
-  .hero-sub {
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--muted);
-    max-width: 540px;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.3s forwards;
-  }
-
-  .hero-sub strong { color: var(--text); font-weight: 400; }
-
-  .hero-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.4s forwards;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background: var(--accent);
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-
-  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 24px;
-    border: 1px solid var(--border2);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  }
-
-  .btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: var(--border2); transform: translateY(-1px); }
-
-  .hero-scroll {
-    margin-top: 5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--muted);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.6s forwards;
-  }
-
-  .scroll-line {
-    width: 40px;
-    height: 1px;
-    background: var(--border2);
-  }
-
-  /* PLATFORMS */
-  .platforms-bar {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 1.25rem 2.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    overflow-x: auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .platform-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 2rem;
-    border-right: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 13px;
-    white-space: nowrap;
-  }
-
-  .platform-item:first-child { padding-left: 0; }
-
-  .platform-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-  }
-
-  /* SECTIONS */
-  section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 6rem 2.5rem;
-  }
-
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 3.5rem;
-  }
-
-  .section-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* STATS */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 5rem;
-  }
-
-  .stat-cell {
-    background: var(--bg2);
-    padding: 2.5rem 2rem;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 48px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--text);
-  }
-
-  .stat-unit { color: var(--accent); }
-
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .project-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at top left, rgba(79,140,255,0.04), transparent 60%);
-    pointer-events: none;
-  }
-
-  .project-card:hover {
-    border-color: var(--border2);
-    transform: translateY(-2px);
-  }
-
-  .project-card.featured {
-    border-color: rgba(79,140,255,0.25);
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .project-card.featured::before {
-    background: radial-gradient(ellipse at top left, rgba(79,140,255,0.08), transparent 60%);
-  }
-
-  .featured-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    padding: 4px 10px;
-    background: rgba(79,140,255,0.12);
-    color: var(--accent);
-    border-radius: 6px;
-    border: 1px solid rgba(79,140,255,0.2);
-    margin-bottom: 1rem;
-  }
-
-  .project-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-bottom: 1rem;
-  }
-
-  .project-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    letter-spacing: -0.01em;
-  }
-
-  .project-type {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .project-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .tag {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.05);
-    color: var(--muted);
-    border: 1px solid var(--border);
-  }
-
-  .platform-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    margin-left: auto;
-    font-weight: 500;
-  }
-
-  .pill-android { background: rgba(74,222,128,0.1); color: var(--green); }
-  .pill-windows { background: rgba(79,140,255,0.1); color: var(--accent); }
-  .pill-web { background: rgba(124,92,252,0.1); color: var(--accent2); }
-  .pill-multi { background: rgba(245,166,35,0.1); color: var(--amber); }
-
-  .project-header-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-
-  .featured-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .featured-highlight {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .highlight-label {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    margin-bottom: 8px;
-  }
-
-  .highlight-value {
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .skill-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-  }
-
-  .skill-card-icon {
-    font-size: 22px;
-    margin-bottom: 1rem;
-  }
-
-  .skill-card-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
-
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .skill-list li {
-    font-size: 13px;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .skill-list li::before {
-    content: '';
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  /* CONTACT */
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .contact-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-  }
-
-  .contact-card.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: linear-gradient(135deg, rgba(79,140,255,0.08), rgba(124,92,252,0.06));
-    border-color: rgba(79,140,255,0.2);
-  }
-
-  .contact-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-sub {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
-    transition: background 0.2s, border-color 0.2s;
-    background: rgba(255,255,255,0.03);
-  }
-
-  .contact-link:hover { background: rgba(255,255,255,0.07); border-color: var(--border2); }
-
-  .contact-link-icon {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    flex-shrink: 0;
-  }
-
-  .contact-link-label { color: var(--muted); font-size: 12px; }
-  .contact-link-value { font-size: 13px; color: var(--text); }
-
-  .contact-side {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .side-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-    flex: 1;
-  }
-
-  .side-card-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
-
-  .avail-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-
-  .avail-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--muted);
-    font-size: 13px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .footer-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    color: var(--text);
-    text-decoration: none;
-  }
-
-  .footer-logo span { color: var(--accent); }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* SVG ICONS inline */
-  .icon { display: inline-block; vertical-align: middle; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 1.25rem; }
-    .hero {
-      flex-direction: column-reverse;
-      text-align: center;
-      gap: 2.5rem;
-      padding: 6rem 1.25rem 3rem;
-      min-height: auto;
-    }
-    .hero-content {
-      align-items: center;
-    }
-    .hero-eyebrow, .hero-actions, .hero-scroll {
-      justify-content: center;
-    }
-    .hero-title { font-size: 42px; }
-    .hero-sub {
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 2rem;
-    }
-    .hero-image-wrapper {
-      width: 240px;
-      height: 240px;
-      margin: 0 auto;
-    }
-    .stats-row { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-wrapper { grid-template-columns: 1fr; }
-    .platforms-bar { padding: 1rem 1.25rem; }
-    footer { flex-direction: column; gap: 8px; text-align: center; }
-  }
-
-  @media (max-width: 480px) {
-    .skills-grid { grid-template-columns: 1fr; }
-  }
-
-  /* GALLERY & TAB STYLES */
-  .gallery-tabs {
-    display: flex;
-    gap: 8px;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-  }
-  .gallery-tab {
-    background: none;
-    border: none;
-    color: var(--muted);
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 8px 16px;
-    cursor: pointer;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  .gallery-tab:hover {
-    color: var(--text);
-  }
-  .gallery-tab.active {
-    color: var(--accent);
-  }
-  .gallery-tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -9px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
-  }
-
-  .gallery-container {
-    display: none;
-    animation: fadeIn 0.4s ease forwards;
-  }
-  .gallery-container.active {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .gallery-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    cursor: zoom-in;
-    display: flex;
-    flex-direction: column;
-  }
-  .gallery-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-  }
-
-  .gallery-card-img-container {
-    position: relative;
-    background: #13131a;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 16/10;
-    overflow: hidden;
-  }
-  .gallery-card-img-container img {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    object-fit: contain;
-    transition: transform 0.5s ease;
-  }
-  .gallery-card:hover .gallery-card-img-container img {
-    transform: scale(1.03);
-  }
-
-  /* LIGHTBOX MODAL STYLES */
-  .lightbox-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 10, 15, 0.85);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    padding: 2rem;
-  }
-  .lightbox-modal.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-  .lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-  }
-  .lightbox-modal.active .lightbox-content {
-    transform: scale(1);
-  }
-  .lightbox-img {
-    max-width: 100%;
-    max-height: 70vh;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border: 1px solid var(--border2);
-    object-fit: contain;
-  }
-  .lightbox-caption {
-    margin-top: 1.5rem;
-    text-align: center;
-    color: var(--text);
-    max-width: 600px;
-  }
-  .lightbox-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .lightbox-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  .lightbox-close {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 28px;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  .lightbox-close:hover {
-    color: var(--accent);
-  }
-  .lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
-    color: var(--text);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
-  }
-  .lightbox-nav:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
-  .lightbox-prev {
-    left: -70px;
-  }
-  .lightbox-next {
-    right: -70px;
-  }
-
-  @media (max-width: 900px) {
-    .lightbox-prev {
-      left: 10px;
-      top: auto;
-      bottom: -60px;
-      transform: none;
-    }
-    .lightbox-next {
-      right: 10px;
-      top: auto;
-      bottom: -60px;
-      transform: none;
-    }
-    .lightbox-caption {
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-    .lightbox-close {
-      right: 10px;
-      top: -35px;
-    }
-  }
-
-  /* REVEAL TRANSITIONS */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* QURAN AUDIO PLAYER CARD IN HERO */
-  .hero-player-container {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(16px);
-    border-radius: 12px;
-    padding: 12px 16px;
-    margin-bottom: 1.75rem;
-    max-width: 440px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.35s forwards;
-    position: relative;
-    z-index: 5;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  }
-  :root.light-mode .hero-player-container {
-    background: rgba(0, 0, 0, 0.02);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  }
-
-  .hp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .hp-title-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hp-icon-wrapper {
-    font-size: 20px;
-    background: rgba(79, 140, 255, 0.1);
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-  }
-
-  .hp-meta {
-    text-align: left;
-  }
-
-  .hp-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-  }
-
-  .hp-reciter {
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  .hp-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hp-play-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, opacity 0.2s;
-    flex-shrink: 0;
-  }
-
-  .hp-play-btn:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-
-  .hp-progress-wrapper {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .hp-time {
-    font-size: 10px;
-    color: var(--muted);
-    font-family: monospace;
-    width: 30px;
-    text-align: center;
-  }
-
-  .hp-slider-container {
-    flex-grow: 1;
-    height: 6px;
-    background: var(--border2);
-    border-radius: 3px;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .hp-slider-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 3px;
-    width: 0%;
-  }
-
-  .hp-volume-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .hp-vol-btn {
-    background: none;
-    border: none;
-    color: var(--text);
-    cursor: pointer;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .hp-vol-btn:hover {
-    opacity: 1;
-  }
-
-  .hp-vol-slider-container {
-    width: 60px;
-    height: 4px;
-    background: var(--border2);
-    border-radius: 2px;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .hp-vol-slider-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-    width: 50%;
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <script>
@@ -1384,12 +172,12 @@
 
     <div class="stats-row reveal">
       <div class="stat-cell">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Major Projects Built</div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Major Production Projects</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">7</div>
-        <div class="stat-label">Connected Apps & Dashboards</div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Connected Apps & Web Platforms</div>
       </div>
       <div class="stat-cell">
         <div class="stat-num">100%</div>
@@ -1600,6 +388,140 @@
           </div> <!-- End of delivery gallery container -->
         </div> <!-- End of Laundry SaaS screenshots showcase -->
       </div> <!-- End of Laundry SaaS featured project card -->
+
+      <!-- Featured Flutter Web Project: Miss Safaa -->
+      <div class="project-card featured reveal" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(34,211,176,0.25);">
+        <div style="width: 100%;">
+          <div class="featured-badge" style="background: rgba(34,211,176,0.12); color: var(--teal); border-color: rgba(34,211,176,0.25);">
+            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Featured Production Flutter Web Platform
+          </div>
+          <div class="project-icon" style="background:rgba(34,211,176,0.1); margin-top: 1rem;">📖</div>
+          <div class="project-header-row">
+            <div>
+              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Miss Safaa (صفاء زيدان)</div>
+              <div class="project-type" style="color: var(--teal); font-weight: 500;">Interactive Children Foundation Books & Web Platform</div>
+              <div style="margin: 0.5rem 0 1rem 0;">
+                <a href="https://miss-safaa.web.app/" target="_blank" class="project-live-btn" style="border-color: rgba(34,211,176,0.3); background: rgba(34,211,176,0.08); color: var(--teal);">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Website (miss-safaa.web.app)
+                </a>
+              </div>
+            </div>
+            <span class="platform-pill pill-multi" style="background: rgba(34,211,176,0.1); color: var(--teal);">Flutter Web (Production) · Full SEO & Responsive</span>
+          </div>
+          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
+            منصة تعليمية تفاعلية على الويب مخصصة لعرض وسرد كتب تأسيس وتطوير مهارات الأطفال (سلسلة كتب أ. صفاء زيدان التعليمية). صُممت وبُنيت بالكامل بتقنيات <strong>Flutter Web</strong> لتقديم تجربة تصفح هادئة وسريعة الاستجابة، مدعومة بمحرك متكامل لأرشفة محركات البحث (SEO Engine)، وتصميم متجاوب بنسبة 100% مع كافة الشاشات والأجهزة (Responsive UI)، وتكامل مباشر للطلب والتواصل عبر WhatsApp.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🌐 Web SEO & Social Meta</h4>
+              <p style="font-size: 14px; color: var(--muted);">تهيئة شاملة لمحركات البحث وشبكات التواصل باستخدام حزمتي <code>seo</code> و <code>meta_seo</code> للتحكم الديناميكي بوسوم الميتا و OpenGraph لتسهيل الفهرسة والمشاركة.</p>
+            </div>
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">📐 Pixel-Perfect Responsive UI</h4>
+              <p style="font-size: 14px; color: var(--muted);">هندسة واجهات متكيفة بالكامل عبر <code>flutter_screenutil</code> لتناسب مقاسات شاشات الهواتف المحمولة، الأجهزة اللوحية، وشاشات الحواسيب المكتبية بتناسق تام.</p>
+            </div>
+            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">⚡ BLoC & Visibility Motion</h4>
+              <p style="font-size: 14px; color: var(--muted);">تطبيق معمارية BLoC/Cubit لفصل منطق الأعمال، مدعومة بحركات وظهور سلس للأقسام عند التمرير باستخدام <code>visibility_detector</code>.</p>
+            </div>
+          </div>
+
+          <!-- Dependencies and Architecture YAML Card -->
+          <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+            <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
+              </div>
+              <span style="font-size: 11px; color: var(--teal); background: rgba(34,211,176,0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Flutter Web Stack</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+              <!-- Code Section -->
+              <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
+                <span style="color: #f7768e;">dependencies:</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">cupertino_icons:</span> <span style="color: #e0af68;">^1.0.8</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.2.1</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">cached_network_image:</span> <span style="color: #e0af68;">^3.4.1</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">equatable:</span> <span style="color: #e0af68;">^2.0.8</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">firebase_core:</span> <span style="color: #e0af68;">^4.10.0</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">url_launcher:</span> <span style="color: #e0af68;">^6.3.2</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">seo:</span> <span style="color: #e0af68;">^0.0.10</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">meta_seo:</span> <span style="color: #e0af68;">^3.0.9</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">webview_flutter_web:</span> <span style="color: #e0af68;">^0.2.3+4</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">intl:</span> <span style="color: #e0af68;">^0.20.2</span><br>
+                &nbsp;&nbsp;<span style="color: #9ece6a;">visibility_detector:</span> <span style="color: #e0af68;">^0.4.0+2</span>
+              </div>
+              
+              <!-- Explanation Section -->
+              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
+                <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Flutter Web Packages Explained</h5>
+                <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
+                  <li><strong>seo & meta_seo:</strong> محرك تحسين أرشفة محركات البحث وتوليد الـ Meta Tags وعناوين OpenGraph ديناميكياً لـ Flutter Web.</li>
+                  <li><strong>flutter_screenutil:</strong> ضبط التناسق البصري والأبعاد بدقة عبر شاشات الهواتف والتابلت والحواسيب المكتبية.</li>
+                  <li><strong>easy_localization & intl:</strong> دعم اللغة العربية وتنسيق اتجاه الواجهة (RTL) والتواريخ والأرقام بسلاسة.</li>
+                  <li><strong>flutter_bloc & equatable:</strong> إدارة الحالة وفصل منطق الأعمال بدقة مع منع إعادة بناء الـ Widgets غير الضرورية.</li>
+                  <li><strong>cached_network_image:</strong> تحميل وتخزين صور الكتب والرسومات مؤقتاً لتسريع زمن استجابة الموقع.</li>
+                  <li><strong>visibility_detector:</strong> رصد ظهور الأقسام في شاشة المستخدم وتفعيل التحريكات والانتقالات التفاعلية.</li>
+                  <li><strong>url_launcher & firebase_core:</strong> ربط التواصل الفوري مع WhatsApp واستضافة الموقع عبر سحابة Firebase Hosting.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-tags" style="margin-bottom: 2rem;">
+            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Flutter Web (Production)</span>
+            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">SEO Engine (meta_seo & seo)</span>
+            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit Architecture</span>
+            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">easy_localization (Arabic / RTL)</span>
+            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">flutter_screenutil (Responsive)</span>
+            <span class="tag">Firebase Hosting</span>
+            <span class="tag">url_launcher (WhatsApp direct)</span>
+            <span class="tag">visibility_detector (Scroll Motion)</span>
+            <span class="tag">cached_network_image</span>
+            <span class="tag">Equatable</span>
+          </div>
+        </div>
+
+        <!-- Miss Safaa Screenshots Showcase Area -->
+        <div style="width: 100%;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Miss Safaa Web Platform Experience</h4>
+
+          <!-- Tab Switcher for Miss Safaa -->
+          <div class="gallery-tabs">
+            <button class="gallery-tab active" data-tab="miss-safaa-landing">🌐 Live Web Platform Preview</button>
+          </div>
+
+          <!-- Tab 1: Live Web Platform Preview -->
+          <div id="miss-safaa-landing" class="gallery-container active">
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">miss-safaa.web.app</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/miss_safaa_web.png" alt="Miss Safaa Web Platform Landing Page">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">الواجهة الرئيسية لمنصة صفاء زيدان (Miss Safaa Web Landing Page)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ويب تفاعلية صُممت بدقة عالية لعرض كتب تأسيس الأطفال واستعراض المنهج التعليمي، مدعومة بتهيئة الـ SEO الكاملة وميزة التواصل والطلب السريع عبر WhatsApp.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End of Miss Safaa featured project card -->
 
       <!-- Featured Mobile App Project: Bookia Store -->
       <div class="project-card featured reveal" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(124,92,252,0.25);">
@@ -1924,19 +846,29 @@
         <div style="width: 100%;">
           <div class="featured-badge" style="background: rgba(249, 115, 22, 0.12); color: #f97316; border-color: rgba(249, 115, 22, 0.25);">
             <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            Featured Team Mobile App Project
+            Featured Multi-Platform Tourism Ecosystem
           </div>
           <div class="project-icon" style="background: rgba(249, 115, 22, 0.1); margin-top: 1rem;">🛎️</div>
           <div class="project-header-row">
             <div>
               <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Vaygoo</div>
-              <div class="project-type" style="color: #f97316; font-weight: 500;">Collaborative On-Demand Service Platform</div>
+              <div class="project-type" style="color: #f97316; font-weight: 500;">Collaborative On-Demand Service & Tourism Platform</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 0.5rem 0 1rem 0;">
+                <a href="https://www.vaygoo.com" target="_blank" class="project-live-btn" style="border-color: rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.08); color: #f97316;">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Web Platform (www.vaygoo.com)
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.vaygoo.travel" target="_blank" class="project-live-btn" style="border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.08); color: var(--green);">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.43 2.43 0 0 1-.61-.75V2.564c.163-.3.376-.56.609-.75zm11.246 11.248l2.585 2.586-11.45 6.611 8.865-9.197zm0-2.124L5.99 1.74l11.45 6.612-2.585 2.586zm1.472 1.062l3.414 1.972a1.328 1.328 0 0 1 0 2.056l-3.414 1.972-2.327-2.328 2.327-2.672z"/></svg>
+                  Google Play Store (App)
+                </a>
+              </div>
             </div>
-            <span class="platform-pill pill-multi" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Flutter iOS + Android Mobile App & Admin Dashboard</span>
+            <span class="platform-pill pill-multi" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Flutter iOS + Android App & Web Platform (www.vaygoo.com)</span>
           </div>
           
           <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
-            منصة خدمية متكاملة لربط العملاء بمقدمي الخدمات وإدارتها عبر لوحة تحكم إدارية (Admin Dashboard). تم تطوير التطبيق بالتعاون مع فريق برمجي، مما ساعد في صقل مهارات العمل الجماعي، وإدارة الشيفرة البرمجية عبر Git & GitHub، وتقسيم المهام والبرانشات وحل التعارضات برمجياً.
+            منظومة سياحية وخدمية متكاملة لربط السياح والعملاء بمقدمي الخدمات والرحلات الترفيهية في مدينة الغردقة (رحلات بحرية، سفاري الصحراء، مساج وسبا، وصالونات تجميل). تتضمن المنظومة <strong>تطبيق الهاتف المحمول (iOS / Android)</strong>، و<strong>بوابة الويب الرسمية الحية (www.vaygoo.com)</strong>، ولوحة تحكم إدارية. تم تطوير المشروع بالتعاون مع فريق برمجي، مما صقل مهارات العمل الجماعي، وإدارة الشيفرة عبر Git & GitHub، وتقسيم المهام والبرانشات وحل التعارضات برمجياً.
           </p>
 
           <!-- Contribution & Soft Skills Highlighting -->
@@ -2024,6 +956,8 @@
             <span class="tag" style="background: rgba(34, 211, 176, 0.1); color: var(--teal);">Google & Facebook OAuth Auth</span>
             <span class="tag" style="background: rgba(245, 166, 35, 0.1); color: var(--amber);">Google Maps & Geolocation</span>
             <span class="tag" style="background: rgba(245, 166, 35, 0.1); color: var(--amber);">Hive Local Caching</span>
+            <span class="tag" style="background: rgba(74, 222, 128, 0.1); color: var(--green);">Google Play (Published)</span>
+            <span class="tag" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Live Web (www.vaygoo.com)</span>
             <span class="tag">App Links & Deep Linking</span>
             <span class="tag">easy_localization (Multi-language)</span>
             <span class="tag">BLoC / Cubit State Management</span>
@@ -2034,17 +968,37 @@
 
         <!-- Vaygoo Screenshots Showcase Area -->
         <div style="width: 100%;">
-          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Vaygoo Mobile Application Journey</h4>
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Vaygoo Multi-Platform Journey</h4>
 
           <!-- Tab Switcher for Vaygoo -->
           <div class="gallery-tabs">
-            <button class="gallery-tab active" data-tab="vaygoo-client">👤 Client Experience</button>
-            <button class="gallery-tab" data-tab="vaygoo-provider">💼 Provider Experience</button>
+            <button class="gallery-tab active" data-tab="vaygoo-web">🌐 Live Web Platform (www.vaygoo.com)</button>
+            <button class="gallery-tab" data-tab="vaygoo-client">👤 Client Mobile Experience</button>
+            <button class="gallery-tab" data-tab="vaygoo-provider">💼 Provider Dashboard</button>
             <button class="gallery-tab" data-tab="vaygoo-bookings">📅 Reservations & Orders</button>
           </div>
 
-          <!-- Tab 1: Client Experience -->
-          <div id="vaygoo-client" class="gallery-container active">
+          <!-- Tab 1: Web Platform Experience -->
+          <div id="vaygoo-web" class="gallery-container active">
+            <div class="gallery-card">
+              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
+                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">www.vaygoo.com</span>
+              </div>
+              <div class="gallery-card-img-container">
+                <img src="assets/image/vaygoo_web.png" alt="Vaygoo Web Tourism Services Portal">
+              </div>
+              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">بوابة الخدمات السياحية على الويب (Vaygoo Web Portal)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ويب شاملة لاستعراض باقات الرحلات البحرية (Sea Cruises)، رحلات السفاري، المساج والسبا، مع أزرار التحويل لتطبيقات Google Play و App Store والتبديل بين اللغتين العربية والإنجليزية.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Client Experience -->
+          <div id="vaygoo-client" class="gallery-container">
             
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
@@ -2156,12 +1110,12 @@
 
       <div class="skill-card reveal">
         <div class="skill-card-icon">📱</div>
-        <div class="skill-card-title">Core</div>
+        <div class="skill-card-title">Core & Flutter Web</div>
         <ul class="skill-list">
           <li>Flutter (Mobile / Desktop / Web)</li>
-          <li>Dart</li>
-          <li>Clean Architecture 2-layer</li>
-          <li>flutter_screenutil</li>
+          <li>Dart & Clean Architecture</li>
+          <li>Flutter Web SEO (seo, meta_seo)</li>
+          <li>flutter_screenutil (Responsive UI)</li>
         </ul>
       </div>
 
@@ -2334,252 +1288,6 @@
   </div>
 </div>
 
-<script>
-  // Theme Toggle Button functionality
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('light-mode');
-      if (document.documentElement.classList.contains('light-mode')) {
-        localStorage.setItem('theme', 'light');
-      } else {
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  }
-
-  // Intersection Observer for Scroll Reveals
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.05,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // Scoped Tab Switchers per featured project card
-  const featuredProjects = document.querySelectorAll('.project-card.featured');
-  
-  featuredProjects.forEach(project => {
-    const tabs = project.querySelectorAll('.gallery-tab');
-    const grids = project.querySelectorAll('.gallery-container');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        grids.forEach(g => g.classList.remove('active'));
-
-        tab.classList.add('active');
-        const targetGrid = project.querySelector(`#${tab.dataset.tab}`);
-        if (targetGrid) {
-          targetGrid.classList.add('active');
-        }
-      });
-    });
-  });
-
-  // Lightbox Modal
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxDesc = document.getElementById('lightbox-desc');
-  const closeBtn = document.getElementById('lightbox-close');
-  const prevBtn = document.getElementById('lightbox-prev');
-  const nextBtn = document.getElementById('lightbox-next');
-
-  // Collect all gallery items in their document order
-  const galleryItems = Array.from(document.querySelectorAll('.gallery-card'));
-  let currentIndex = 0;
-
-  function showImage(index) {
-    if (index < 0) index = galleryItems.length - 1;
-    if (index >= galleryItems.length) index = 0;
-    currentIndex = index;
-
-    const item = galleryItems[currentIndex];
-    const img = item.querySelector('img');
-    const title = item.querySelector('.gallery-card-title').textContent;
-    const desc = item.querySelector('.gallery-card-desc').textContent;
-
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightboxTitle.textContent = title;
-    lightboxDesc.textContent = desc;
-  }
-
-  galleryItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-      showImage(index);
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Disable scroll
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = ''; // Enable scroll
-  }
-
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showImage(currentIndex - 1);
-  });
-
-  nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showImage(currentIndex + 1);
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
-    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
-  });
-
-  // Hero Quran Player Controls
-  const hpAudio = document.getElementById('hero-audio');
-  const hpPlayBtn = document.getElementById('hp-play-btn');
-  const hpPlayIcon = hpPlayBtn.querySelector('.hp-play-icon');
-  const hpPauseIcon = hpPlayBtn.querySelector('.hp-pause-icon');
-  const hpCurrentTime = document.getElementById('hp-current-time');
-  const hpDuration = document.getElementById('hp-duration');
-  const hpProgressContainer = document.getElementById('hp-progress-container');
-  const hpProgressFill = document.getElementById('hp-progress-fill');
-  const hpVolumeBtn = document.getElementById('hp-volume-btn');
-  const hpSpeakerIcon = hpVolumeBtn.querySelector('.hp-speaker-icon');
-  const hpMuteIcon = hpVolumeBtn.querySelector('.hp-mute-icon');
-  const hpVolumeContainer = document.getElementById('hp-volume-container');
-  const hpVolumeFill = document.getElementById('hp-volume-fill');
-
-  let lastVolume = 0.5;
-  hpAudio.volume = lastVolume;
-
-  function formatTime(secs) {
-    if (isNaN(secs)) return '00:00';
-    const m = Math.floor(secs / 60);
-    const s = Math.floor(secs % 60);
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-  }
-
-  hpPlayBtn.addEventListener('click', () => {
-    if (hpAudio.paused) {
-      hpAudio.play();
-      hpPlayIcon.style.display = 'none';
-      hpPauseIcon.style.display = 'block';
-    } else {
-      hpAudio.pause();
-      hpPlayIcon.style.display = 'block';
-      hpPauseIcon.style.display = 'none';
-    }
-  });
-
-  hpAudio.addEventListener('loadedmetadata', () => {
-    hpDuration.textContent = formatTime(hpAudio.duration);
-  });
-
-  hpAudio.addEventListener('timeupdate', () => {
-    if (!isNaN(hpAudio.duration)) {
-      hpDuration.textContent = formatTime(hpAudio.duration);
-      const pct = (hpAudio.currentTime / hpAudio.duration) * 100;
-      hpProgressFill.style.width = `${pct}%`;
-      hpCurrentTime.textContent = formatTime(hpAudio.currentTime);
-    }
-  });
-
-  hpAudio.addEventListener('ended', () => {
-    hpPlayIcon.style.display = 'block';
-    hpPauseIcon.style.display = 'none';
-    hpProgressFill.style.width = '0%';
-    hpCurrentTime.textContent = '00:00';
-  });
-
-  hpProgressContainer.addEventListener('click', (e) => {
-    const rect = hpProgressContainer.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const width = rect.width;
-    if (hpAudio.duration) {
-      hpAudio.currentTime = (clickX / width) * hpAudio.duration;
-    }
-  });
-
-  hpVolumeBtn.addEventListener('click', () => {
-    if (hpAudio.volume > 0) {
-      lastVolume = hpAudio.volume;
-      setVolume(0);
-    } else {
-      setVolume(lastVolume);
-    }
-  });
-
-  function setVolume(pct) {
-    if (pct < 0) pct = 0;
-    if (pct > 1) pct = 1;
-    hpAudio.volume = pct;
-    hpVolumeFill.style.width = `${pct * 100}%`;
-    if (pct === 0) {
-      hpSpeakerIcon.style.display = 'none';
-      hpMuteIcon.style.display = 'block';
-    } else {
-      hpSpeakerIcon.style.display = 'block';
-      hpMuteIcon.style.display = 'none';
-      lastVolume = pct;
-    }
-  }
-
-  hpVolumeContainer.addEventListener('click', (e) => {
-    const rect = hpVolumeContainer.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const pct = clickX / rect.width;
-    setVolume(pct);
-  });
-
-  // Autoplay function with user interaction fallbacks for browser compatibility
-  function attemptAutoplay() {
-    hpAudio.play().then(() => {
-      // Autoplay succeeded
-      hpPlayIcon.style.display = 'none';
-      hpPauseIcon.style.display = 'block';
-    }).catch((err) => {
-      console.log("Autoplay blocked. Registering fallback user interaction listeners...");
-      
-      const startOnInteraction = () => {
-        hpAudio.play().then(() => {
-          hpPlayIcon.style.display = 'none';
-          hpPauseIcon.style.display = 'block';
-        });
-        // Remove all interaction listeners once started
-        document.removeEventListener('click', startOnInteraction);
-        document.removeEventListener('touchstart', startOnInteraction);
-        document.removeEventListener('scroll', startOnInteraction);
-      };
-      
-      document.addEventListener('click', startOnInteraction);
-      document.addEventListener('touchstart', startOnInteraction);
-      document.addEventListener('scroll', startOnInteraction);
-    });
-  }
-
-  // Attempt to play on load
-  window.addEventListener('DOMContentLoaded', () => {
-    attemptAutoplay();
-  });
-  // Fallback direct call
-  attemptAutoplay();
-</script>
-
+<script src="js/main.js" defer></script>
 </body>
 </html>

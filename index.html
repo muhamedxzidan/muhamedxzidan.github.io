@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Zidan — Flutter Developer</title>
+<title>Mohamed Zidan — Senior Flutter Developer Portfolio</title>
+<meta name="description" content="Mohamed Zidan — Senior Flutter Developer specializing in Mobile, Windows Desktop & Flutter Web platforms. Clean Architecture, Real-time streams, Enterprise ERPs & SaaS platforms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -28,7 +29,7 @@
   </ul>
   <div style="display: flex; align-items: center; gap: 1rem;">
     <!-- Theme Toggle Switcher -->
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Light/Dark Theme">
       <svg class="sun-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       <svg class="moon-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
@@ -162,21 +163,21 @@
     </div>
   </div>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS SECTION -->
   <section id="projects">
     <div class="section-label reveal">
       <span class="section-num">01</span>
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">Featured Projects</h2>
       <div class="section-line"></div>
     </div>
 
     <div class="stats-row reveal">
       <div class="stat-cell">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Major Production Projects</div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Major Production Systems</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">10+</div>
+        <div class="stat-num">12+</div>
         <div class="stat-label">Connected Apps & Web Platforms</div>
       </div>
       <div class="stat-cell">
@@ -185,67 +186,563 @@
       </div>
     </div>
 
-    <div class="projects-grid" style="grid-template-columns: 1fr;">
+    <!-- Category Filter Bar -->
+    <div class="project-filter-bar reveal">
+      <button class="filter-chip active" data-filter="all">
+        الكل (All Projects)
+        <span class="filter-badge">5</span>
+      </button>
+      <button class="filter-chip" data-filter="saas">
+        أنظمة سحابية وشركات (SaaS & ERP)
+        <span class="filter-badge">2</span>
+      </button>
+      <button class="filter-chip" data-filter="mobile">
+        تطبيقات الموبايل (Mobile Apps)
+        <span class="filter-badge">2</span>
+      </button>
+      <button class="filter-chip" data-filter="web">
+        فلاتر ويب و SEO (Flutter Web)
+        <span class="filter-badge">2</span>
+      </button>
+    </div>
 
-      <!-- Featured Master SaaS Platform -->
-      <div class="project-card featured reveal" style="display: flex; flex-direction: column; gap: 2rem;">
-        <div style="width: 100%;">
-          <div class="featured-badge">
-            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <!-- Modern Projects Showcase Grid -->
+    <div class="modern-showcase-grid reveal">
+
+      <!-- SHOWCASE CARD 1: Laundry SaaS -->
+      <div class="showcase-card theme-blue" data-category="saas">
+        <div class="showcase-preview-frame" data-open-project="laundry-saas" title="Click to view Laundry SaaS case study">
+          <img src="assets/image/super_admin_dashboard.png" alt="Laundry SaaS Platform Preview" class="showcase-preview-img">
+          <div class="showcase-preview-overlay">
+            <span class="showcase-preview-badge badge-blue">🧺 Multi-Tenant SaaS</span>
+            <span class="showcase-quick-explore-hint">
+              تفاصيل المشروع
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="showcase-body">
+          <div class="showcase-header">
+            <div class="showcase-icon" style="background: rgba(79, 140, 255, 0.12);">🧺</div>
+            <div class="showcase-title-area">
+              <h3 class="showcase-title">Laundry SaaS Platform</h3>
+              <div class="showcase-subtitle" style="color: var(--accent);">Super Admin Web + Cashier Panel + Delivery Mobile</div>
+            </div>
+          </div>
+          <p class="showcase-desc">
+            منظومة سحابية متكاملة لإدارة فروع واشتراكات المغاسل، مدعومة ببث مباشر لحظي للطلبات، وتوليد الفواتير وإرسالها فوراً للعميل عبر WhatsApp.
+          </p>
+          <div class="showcase-highlights">
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--accent)" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span><strong>بث مباشر للطلبات:</strong> تحديث فوري للكاشير دون إعادة تحميل</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--green)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span><strong>فواتير WhatsApp:</strong> إرسال تلقائي مباشر لبيانات الفاتورة</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--amber)" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span><strong>Multi-Tenant:</strong> تحكم كامل في الصلاحيات والاشتراكات</span>
+            </div>
+          </div>
+          <div class="showcase-tags">
+            <span class="showcase-tag">Flutter (Web/Desktop/Mobile)</span>
+            <span class="showcase-tag">Cloud Firestore Streams</span>
+            <span class="showcase-tag">BLoC / Cubit</span>
+            <span class="showcase-tag">+5 tags</span>
+          </div>
+          <div class="showcase-footer">
+            <button class="btn-explore-case-study" data-open-project="laundry-saas">
+              عرض تفاصيل ودراسة المشروع
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOWCASE CARD 2: Makhzani ERP -->
+      <div class="showcase-card theme-emerald" data-category="saas">
+        <div class="showcase-preview-frame" data-open-project="makhzani" title="Click to view Makhzani ERP case study">
+          <img src="assets/image/makhzani_dashboard_stock.png" alt="Makhzani ERP Stock Dashboard" class="showcase-preview-img">
+          <div class="showcase-preview-overlay">
+            <span class="showcase-preview-badge badge-emerald">🏬 Enterprise ERP</span>
+            <span class="showcase-quick-explore-hint">
+              تفاصيل المشروع
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="showcase-body">
+          <div class="showcase-header">
+            <div class="showcase-icon" style="background: rgba(16, 185, 129, 0.12);">🏬</div>
+            <div class="showcase-title-area">
+              <h3 class="showcase-title">Makhzani (مخزني)</h3>
+              <div class="showcase-subtitle" style="color: var(--emerald);">Warehouse, Inventory & Stock Audit ERP</div>
+            </div>
+          </div>
+          <p class="showcase-desc">
+            منظومة متطورة لإدارة المخازن والمستودعات والرقابة على الأرصدة، مصممة بنبض فوري للرصيد، ودورة تسوية المرتجعات، وجلسات جرد رقمية واعتماد الفروق بضغطة زر.
+          </p>
+          <div class="showcase-highlights">
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--emerald)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span><strong>دورة الـ 4 مراحل:</strong> تكويد ← نبض رصيد ← تسوية مرتجع ← جرد</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--teal)" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span><strong>مطابقة الجرد الفوري:</strong> احتساب العجز والزيادة واعتماد التسوية</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--amber)" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              <span><strong>Offline Resilience:</strong> عمل مستمر مع مزامنة فورية للبيانات</span>
+            </div>
+          </div>
+          <div class="showcase-tags">
+            <span class="showcase-tag">Flutter Windows/Web</span>
+            <span class="showcase-tag">Offline First</span>
+            <span class="showcase-tag">Stock Audit Engine</span>
+            <span class="showcase-tag">+6 tags</span>
+          </div>
+          <div class="showcase-footer">
+            <button class="btn-explore-case-study" data-open-project="makhzani">
+              عرض تفاصيل ودراسة المشروع
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOWCASE CARD 3: Miss Safaa -->
+      <div class="showcase-card theme-teal" data-category="web">
+        <div class="showcase-preview-frame" data-open-project="miss-safaa" title="Click to view Miss Safaa case study">
+          <img src="assets/image/miss_safaa_web.png" alt="Miss Safaa Web Platform" class="showcase-preview-img">
+          <div class="showcase-preview-overlay">
+            <span class="showcase-preview-badge badge-teal">📖 Flutter Web & SEO</span>
+            <span class="showcase-quick-explore-hint">
+              تفاصيل المشروع
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="showcase-body">
+          <div class="showcase-header">
+            <div class="showcase-icon" style="background: rgba(34, 211, 176, 0.12);">📖</div>
+            <div class="showcase-title-area">
+              <h3 class="showcase-title">Miss Safaa (صفاء زيدان)</h3>
+              <div class="showcase-subtitle" style="color: var(--teal);">Interactive Children Educational Books Platform</div>
+            </div>
+          </div>
+          <p class="showcase-desc">
+            منصة ويب تفاعلية حية صُممت وبُنيت بـ Flutter Web لتقديم تجربة استعراض مناهج الأطفال، مدعومة بمحرك متكامل لأرشفة محركات البحث (SEO Engine) وتصميم متجاوب 100%.
+          </p>
+          <div class="showcase-highlights">
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--teal)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span><strong>SEO Engine (meta_seo & seo):</strong> أرشفة وتوليد وسوم الميتا ديناميكياً</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--accent)" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+              <span><strong>Pixel-Perfect Responsive:</strong> تكيف مثالي عبر شاشات الموبايل والكمبيوتر</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--green)" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span><strong>Live Production:</strong> موقع حي يعمل بكفاءة عبر Firebase Hosting</span>
+            </div>
+          </div>
+          <div class="showcase-tags">
+            <span class="showcase-tag">Flutter Web</span>
+            <span class="showcase-tag">SEO Engine</span>
+            <span class="showcase-tag">flutter_screenutil</span>
+            <span class="showcase-tag">WhatsApp Direct</span>
+          </div>
+          <div class="showcase-footer">
+            <button class="btn-explore-case-study" data-open-project="miss-safaa">
+              عرض تفاصيل ودراسة المشروع
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="https://miss-safaa.web.app/" target="_blank" class="btn-card-external" title="Open Live Website (miss-safaa.web.app)">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOWCASE CARD 4: Bookia Store -->
+      <div class="showcase-card theme-purple" data-category="mobile">
+        <div class="showcase-preview-frame" data-open-project="bookia" title="Click to view Bookia Store case study">
+          <img src="assets/image/bookia_home.png" alt="Bookia Mobile App Home" class="showcase-preview-img">
+          <div class="showcase-preview-overlay">
+            <span class="showcase-preview-badge badge-purple">📚 Production Mobile App</span>
+            <span class="showcase-quick-explore-hint">
+              تفاصيل المشروع
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="showcase-body">
+          <div class="showcase-header">
+            <div class="showcase-icon" style="background: rgba(124, 92, 252, 0.12);">📚</div>
+            <div class="showcase-title-area">
+              <h3 class="showcase-title">Bookia Store</h3>
+              <div class="showcase-subtitle" style="color: var(--accent2);">Production-Style Bookstore Mobile App</div>
+            </div>
+          </div>
+          <p class="showcase-desc">
+            تطبيق هاتف محمول لبيع وتصفح الكتب مصمم بهندسة Clean Architecture؛ يشمل رحلة مصادقة مؤمنة من 8 خطوات، وإدارة السلة والمفضلة مع REST APIs.
+          </p>
+          <div class="showcase-highlights">
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--accent2)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span><strong>رحلة مصادقة كاملة:</strong> 8 شاشات من الـ Splash إلى استعادة الـ OTP</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--teal)" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span><strong>REST APIs & Dio:</strong> اتصال ومعالجة كاملة لبيانات المتجر والطلبات</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--amber)" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <span><strong>تخزين مشفر:</strong> Secure Storage للجلسات و Skeletonizer للتحميل</span>
+            </div>
+          </div>
+          <div class="showcase-tags">
+            <span class="showcase-tag">Flutter (iOS/Android)</span>
+            <span class="showcase-tag">Clean Architecture</span>
+            <span class="showcase-tag">Dio REST API</span>
+            <span class="showcase-tag">Pinput OTP</span>
+          </div>
+          <div class="showcase-footer">
+            <button class="btn-explore-case-study" data-open-project="bookia">
+              عرض تفاصيل ودراسة المشروع
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOWCASE CARD 5: Vaygoo -->
+      <div class="showcase-card theme-orange" data-category="mobile web">
+        <div class="showcase-preview-frame" data-open-project="vaygoo" title="Click to view Vaygoo case study">
+          <img src="assets/image/vaygoo_web.png" alt="Vaygoo Tourism Portal" class="showcase-preview-img">
+          <div class="showcase-preview-overlay">
+            <span class="showcase-preview-badge badge-orange">🛎️ Tourism Platform</span>
+            <span class="showcase-quick-explore-hint">
+              تفاصيل المشروع
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="showcase-body">
+          <div class="showcase-header">
+            <div class="showcase-icon" style="background: rgba(249, 115, 22, 0.12);">🛎️</div>
+            <div class="showcase-title-area">
+              <h3 class="showcase-title">Vaygoo</h3>
+              <div class="showcase-subtitle" style="color: #f97316;">Collaborative On-Demand Service & Tourism Ecosystem</div>
+            </div>
+          </div>
+          <p class="showcase-desc">
+            منظومة سياحية وخدمية متكاملة لربط السياح بمقدمي الخدمات والرحلات الترفيهية في مدينة الغردقة، تشمل تطبيق الموبايل وبوابة الويب الرسمية الحية.
+          </p>
+          <div class="showcase-highlights">
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--green)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span><strong>Google Play & Live Web:</strong> منشور ومتاح على المتاجر وموقع حي</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="var(--teal)" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span><strong>Supabase & Google Maps:</strong> خرائط تفاعلية وتحديد المواقع الجغرافية</span>
+            </div>
+            <div class="showcase-highlight-item">
+              <svg width="14" height="14" fill="#f97316" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <span><strong>Team GitFlow:</strong> عمل جماعي احترافي وإدارة الفروع والـ PRs</span>
+            </div>
+          </div>
+          <div class="showcase-tags">
+            <span class="showcase-tag">Flutter Mobile + Web</span>
+            <span class="showcase-tag">Supabase</span>
+            <span class="showcase-tag">Google Maps</span>
+            <span class="showcase-tag">Google/FB OAuth</span>
+          </div>
+          <div class="showcase-footer">
+            <button class="btn-explore-case-study" data-open-project="vaygoo">
+              عرض تفاصيل ودراسة المشروع
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="https://www.vaygoo.com" target="_blank" class="btn-card-external" title="Open Live Website (www.vaygoo.com)">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <div class="section-label reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">📱</div>
+        <div class="skill-card-title">Core & Flutter Web</div>
+        <ul class="skill-list">
+          <li>Flutter (Mobile / Desktop / Web)</li>
+          <li>Dart & Clean Architecture</li>
+          <li>Flutter Web SEO (seo, meta_seo)</li>
+          <li>flutter_screenutil (Responsive UI)</li>
+        </ul>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">⚙️</div>
+        <div class="skill-card-title">State & Navigation</div>
+        <ul class="skill-list">
+          <li>Cubit / Bloc State Management</li>
+          <li>GetIt (Dependency Injection)</li>
+          <li>go_router & Deep Linking</li>
+          <li>Repository & UseCase Pattern</li>
+        </ul>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🗄️</div>
+        <div class="skill-card-title">Backend & Data</div>
+        <ul class="skill-list">
+          <li>Firebase (Auth, Firestore, Hosting)</li>
+          <li>Supabase Backend Services</li>
+          <li>Isar / Hive (Offline-First)</li>
+          <li>Dio REST APIs & Secure Storage</li>
+        </ul>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🚀</div>
+        <div class="skill-card-title">DevOps & Tools</div>
+        <ul class="skill-list">
+          <li>GitHub Actions CI/CD</li>
+          <li>GitFlow branching workflows</li>
+          <li>Claude Code / AI Dev Workflows</li>
+          <li>ESC/POS Thermal Printing</li>
+        </ul>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🤖</div>
+        <div class="skill-card-title">AI Integration & Productivity</div>
+        <ul class="skill-list">
+          <li>AI-assisted coding & workflows</li>
+          <li>Prompt Engineering for architecture</li>
+          <li>Code refactoring & optimization</li>
+          <li>Automating developer tooling</li>
+        </ul>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">📈</div>
+        <div class="skill-card-title">Adaptive Engineering</div>
+        <ul class="skill-list">
+          <li>Flutter/Dart update migration</li>
+          <li>Continuous learning & upgrading</li>
+          <li>Performance profiling & CWV</li>
+          <li>Production deployment & publishing</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="section-label reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Contact & Hiring</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-wrapper">
+
+      <div class="contact-card main reveal">
+        <div>
+          <h3 class="contact-title">Let's build<br>something exceptional.</h3>
+          <p class="contact-sub">Available for freelance projects, contract roles, and full-time positions — mobile, desktop, and web.</p>
+        </div>
+        <div class="contact-links">
+
+          <a href="mailto:mohamed.zidanx99@gmail.com" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(79,140,255,0.15)">
+              <svg width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">mohamed.zidanx99@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/muhamedxzidan" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(255,255,255,0.07)">
+              <svg width="16" height="16" fill="var(--text)" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">github.com/muhamedxzidan</div>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/mohamedxzidan/" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(10,102,194,0.2)">
+              <svg width="16" height="16" fill="#4f8cff" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/mohamedxzidan</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/201210560229" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(37,211,102,0.15)">
+              <svg width="16" height="16" fill="#25D366" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.905-6.99C16.457 1.876 13.979.845 11.34.845 5.9.845 1.477 5.263 1.475 10.71c-.001 1.701.453 3.361 1.314 4.816l-.995 3.637 3.736-.979zm11.367-7.25c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">WhatsApp & Phone</div>
+              <div class="contact-link-value">+20 1210560229</div>
+            </div>
+          </a>
+
+          <a href="https://www.facebook.com/mohamedxzedan" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(24,119,242,0.15)">
+              <svg width="16" height="16" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">Facebook</div>
+              <div class="contact-link-value">facebook.com/mohamedxzedan</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="contact-side reveal">
+        <div class="side-card">
+          <div class="side-card-title">Availability</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--green)"></div> Freelance & Full-time Roles</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--accent)"></div> Mobile & Windows Desktop Apps</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--accent2)"></div> Flutter Web Dashboards & Platforms</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--amber)"></div> Suez, Egypt · Remote Worldwide</div>
+        </div>
+        <div class="side-card">
+          <div class="side-card-title">What I build</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Enterprise ERP & Inventory Systems</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Multi-Tenant SaaS Platforms</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Field Operations & Delivery Apps</div>
+          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Production Flutter Web Portals</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="#" class="footer-logo">MZ<span>.</span></a>
+  <span>Mohamed Zidan · Senior Flutter Developer · Suez, Egypt</span>
+  <span>© 2025</span>
+</footer>
+
+<!-- ==========================================================================
+     DEDICATED CASE STUDY MODAL EXPERIENCE
+     ========================================================================== -->
+<div id="case-study-modal" class="case-study-overlay" role="dialog" aria-modal="true">
+  <div class="case-study-dialog">
+    
+    <!-- Sticky Modal Header -->
+    <div class="case-study-navbar">
+      <div class="case-study-nav-info">
+        <span id="modal-project-icon" class="case-study-nav-icon">🧺</span>
+        <span id="modal-project-title" class="case-study-nav-title">Laundry SaaS Platform</span>
+        <span id="modal-project-counter" class="case-study-nav-counter">1 / 5</span>
+      </div>
+      <div class="case-study-nav-actions">
+        <button id="modal-prev-btn" class="modal-nav-btn" title="Previous Project (←)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          <span>السابق</span>
+        </button>
+        <button id="modal-next-btn" class="modal-nav-btn" title="Next Project (→)">
+          <span>التالي</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button id="modal-close-btn" class="modal-close-btn" title="Close Modal (ESC)">
+          &times;
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Body with 5 Preserved Case Studies -->
+    <div class="case-study-scroll-body">
+
+      <!-- ==========================================
+           ARTICLE 1: LAUNDRY SAAS PLATFORM
+           ========================================== -->
+      <article id="case-study-laundry-saas" class="case-study-article active">
+        
+        <div class="case-study-hero-banner">
+          <div class="case-study-badge badge-blue">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             Featured Production SaaS Platform
           </div>
-          <div class="project-icon" style="background:rgba(79,140,255,0.1); margin-top: 1rem;">🧺</div>
-          <div class="project-header-row">
-            <div>
-              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Laundry SaaS Platform</div>
-              <div class="project-type" style="color: var(--accent); font-weight: 500;">Multi-Tenant Laundry Ecosystem</div>
-            </div>
-            <span class="platform-pill pill-multi">Super Admin Web + Cashier Panel + Delivery Mobile App</span>
+          <h2 class="case-study-main-title">Laundry SaaS Platform</h2>
+          <div class="case-study-main-type" style="color: var(--accent);">Multi-Tenant Laundry Ecosystem & Order Dispatching</div>
+          <div class="case-study-platform-pill pill-multi">
+            Super Admin Web + Cashier Panel + Delivery Mobile App
           </div>
-          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
-            منظومة برمجية متكاملة (SaaS) لإدارة المغاسل بمختلف الفروع والعملاء، مصممة بهندسة برمجية صارمة تعتمد على البث المباشر للطلبات والتحكم الكامل في الصلاحيات والمستندات.
+          <p class="project-desc" style="font-size: 16px; line-height: 1.8; color: var(--text);">
+            منظومة برمجية متكاملة (SaaS) لإدارة المغاسل بمختلف الفروع والعملاء، مصممة بهندسة برمجية صارمة تعتمد على البث المباشر للطلبات والتحكم الكامل في الصلاحيات والمستندات، مع التكامل المباشر لتوليد وإرسال الفواتير للعملاء آلياً عبر WhatsApp فور تسجيلها من المندوب.
           </p>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">👑 Super Admin Dashboard</h4>
-              <p style="font-size: 14px; color: var(--muted);">لوحة تحكم برمجية شاملة لإدارة كافة المغاسل المشتركة، تتيح التحكم الكامل في خطط الاشتراكات وفترات الصلاحية لكل مغسلة بشكل منفصل وآمن تماماً.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">💻 Cashier & Owner Web View</h4>
-              <p style="font-size: 14px; color: var(--muted);">لوحة الكاشير والمالك لمتابعة الطلبات عبر بث مباشر مستمر (Live Stream)؛ تظهر الطلبات وتتحدث فوراً بمجرد اتخاذ أي إجراء من المندوب دون الحاجة لتحديث الصفحة.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">📱 Delivery Agent Mobile App</h4>
-              <p style="font-size: 14px; color: var(--muted);">تطبيق المندوب الميداني لاستلام الأصناف من العملاء وتحديدها، مع ميزة توليد الفواتير وإرسالها فوراً للعميل مباشرة عبر تطبيق WhatsApp بشكل تلقائي.</p>
-            </div>
-          </div>
+        </div>
 
-          <div class="project-tags" style="margin-bottom: 2rem;">
-            <span class="tag" style="background: rgba(79,140,255,0.1); color: var(--accent);">Flutter (Mobile/Web/Desktop)</span>
-            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit State Management</span>
-            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Firebase Core & Auth</span>
-            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Cloud Firestore Real-time Streams</span>
-            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">WhatsApp Native Integration</span>
-            <span class="tag" style="background: rgba(244,114,182,0.1); color: var(--pink);">Clean Architecture</span>
-            <span class="tag">Flutter Secure Storage</span>
-            <span class="tag">url_launcher</span>
+        <!-- 3 Pillars -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">👑 Super Admin Dashboard</h4>
+            <p style="font-size: 14px; color: var(--muted);">لوحة تحكم برمجية شاملة لإدارة كافة المغاسل المشتركة، تتيح التحكم الكامل في خطط الاشتراكات وفترات الصلاحية لكل مغسلة بشكل منفصل وآمن تماماً.</p>
+          </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">💻 Cashier & Owner Web View</h4>
+            <p style="font-size: 14px; color: var(--muted);">لوحة الكاشير والمالك لمتابعة الطلبات عبر بث مباشر مستمر (Live Stream)؛ تظهر الطلبات وتتحدث فوراً بمجرد اتخاذ أي إجراء من المندوب دون الحاجة لتحديث الصفحة.</p>
+          </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">📱 Delivery Agent Mobile App</h4>
+            <p style="font-size: 14px; color: var(--muted);">تطبيق المندوب الميداني لاستلام الأصناف من العملاء وتحديدها، مع ميزة توليد الفواتير وإرسالها فوراً للعميل مباشرة عبر تطبيق WhatsApp بشكل تلقائي.</p>
           </div>
         </div>
 
-        <!-- Screenshots Showcase Area with responsive mockups -->
-        <div style="width: 100%;">
-          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Application Mockups & Previews</h4>
+        <div class="project-tags" style="margin-bottom: 2.5rem;">
+          <span class="tag" style="background: rgba(79,140,255,0.1); color: var(--accent);">Flutter (Mobile/Web/Desktop)</span>
+          <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit State Management</span>
+          <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Firebase Core & Auth</span>
+          <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Cloud Firestore Real-time Streams</span>
+          <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">WhatsApp Native Integration</span>
+          <span class="tag" style="background: rgba(244,114,182,0.1); color: var(--pink);">Clean Architecture</span>
+          <span class="tag">Flutter Secure Storage</span>
+          <span class="tag">url_launcher</span>
+        </div>
+
+        <!-- Screenshots Showcase Area -->
+        <div style="width: 100%; margin-bottom: 3rem;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Application Mockups & Interactive Previews</h4>
           
-          <!-- Tab Switcher -->
           <div class="gallery-tabs">
-            <button class="gallery-tab active" data-tab="super-admin">👑 Super Admin Panel (Dark)</button>
-            <button class="gallery-tab" data-tab="cashier">💻 Cashier Dashboard (Light)</button>
-            <button class="gallery-tab" data-tab="delivery">📱 Delivery Agent App (Mobile)</button>
+            <button class="gallery-tab active" data-tab="saas-super-admin">👑 Super Admin Panel (Dark)</button>
+            <button class="gallery-tab" data-tab="saas-cashier">💻 Cashier Dashboard (Light)</button>
+            <button class="gallery-tab" data-tab="saas-delivery">📱 Delivery Agent App (Mobile)</button>
           </div>
 
           <!-- Super Admin Panel Tab Grid -->
-          <div id="super-admin" class="gallery-container active">
+          <div id="saas-super-admin" class="gallery-container active">
             
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
@@ -298,8 +795,7 @@
           </div>
 
           <!-- Cashier Panel Tab Grid -->
-          <div id="cashier" class="gallery-container">
-            
+          <div id="saas-cashier" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -331,12 +827,10 @@
                 <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">لوحة كاملة تتيح التنقل بين الطلبات، قاعدة بيانات العملاء، تسعير الأصناف، المركبات والمندوبين، والخزينة.</div>
               </div>
             </div>
-
           </div>
 
           <!-- Delivery Agent App Tab Grid -->
-          <div id="delivery" class="gallery-container">
-            
+          <div id="saas-delivery" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -384,142 +878,139 @@
                 <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تأكيد تفاصيل الطلب وتوليد الفاتورة مع ميزة إرسالها تلقائياً للعميل برابط فوري عبر WhatsApp.</div>
               </div>
             </div>
+          </div>
+        </div>
 
-          </div> <!-- End of delivery gallery container -->
-        </div> <!-- End of Laundry SaaS screenshots showcase -->
-      </div> <!-- End of Laundry SaaS featured project card -->
+        <!-- Next Project Banner -->
+        <div class="case-study-next-project-banner">
+          <div>
+            <div class="next-project-eyebrow">Next Case Study</div>
+            <div class="next-project-name">Makhzani (مخزني) ERP</div>
+          </div>
+          <button class="btn-next-project" data-next-project="makhzani">
+            استكشف المشروع التالي
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
 
-      <!-- Featured Enterprise Project: Makhzani ERP -->
-      <div class="project-card featured theme-emerald reveal" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(16, 185, 129, 0.25);">
-        <div style="width: 100%;">
-          <div class="featured-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--emerald); border-color: rgba(16, 185, 129, 0.25);">
-            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </article>
+
+
+      <!-- ==========================================
+           ARTICLE 2: MAKHZANI (مخزني) ERP
+           ========================================== -->
+      <article id="case-study-makhzani" class="case-study-article">
+        
+        <div class="case-study-hero-banner">
+          <div class="case-study-badge badge-emerald">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             Featured Enterprise Warehouse & Inventory ERP
           </div>
-          <div class="project-icon" style="background: rgba(16, 185, 129, 0.1); margin-top: 1rem;">🏬</div>
-          <div class="project-header-row">
-            <div>
-              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Makhzani (مخزني)</div>
-              <div class="project-type" style="color: var(--emerald); font-weight: 500;">Enterprise Warehouse, Inventory & Stock Audit System</div>
-            </div>
-            <span class="platform-pill pill-multi" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">Flutter (Windows Desktop / Web / Mobile) · Real-time Sync · Offline Resilience</span>
+          <h2 class="case-study-main-title">Makhzani (مخزني)</h2>
+          <div class="case-study-main-type" style="color: var(--emerald);">Enterprise Warehouse, Inventory & Stock Audit System</div>
+          <div class="case-study-platform-pill pill-multi" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">
+            Flutter (Windows Desktop / Web / Mobile) · Real-time Sync · Offline Resilience
           </div>
-          
-          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
+          <p class="project-desc" style="font-size: 16px; line-height: 1.8; color: var(--text);">
             منظومة برمجية متطورة لإدارة المخازن والمستودعات والرقابة الشاملة على الأرصدة وحركات التوريد والصرف، مصممة بهندسة برمجية صارمة للقضاء النهائي على عجز الجرد وفوضى الدفاتر. تتميز المنظومة بـ <strong>نبض فوري للرصيد</strong>، و<strong>دورة ذكية لمعالجة المرتجعات وتسوية الموردين</strong>، و<strong>جلسات جرد رقمية تفاعلية</strong> تطابق المخزون الفعلي مع رصيد النظام وتعتمد الفروق بضغطة زر واحدة.
           </p>
+        </div>
 
-          <!-- Operational Lifecycle Highlight -->
-          <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--emerald); border-radius: 8px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
-            <h4 style="color: var(--emerald); font-family: 'Syne', sans-serif; font-size: 15px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔄 End-to-End Operational Lifecycle (دورة العمليات المخزنية المتكاملة)</h4>
-            <p style="font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6;">
-              يبدأ المسار بـ <strong>تكويد الصنف التلقائي وتحديد الرصيد الافتتاحي</strong> ← متابعة <strong>نبض المخزن وحركات الوارد والمنصرف اللحظية</strong> ← معالجة <strong>المرتجع المزدوج (إرجاع للمخزن + تسوية المورد)</strong> ← إتمام <strong>جلسات الجرد الرقمية ومطابقة العجز والزيادة واعتماد الفروق دفعة واحدة</strong>.
-            </p>
+        <!-- Operational Lifecycle Highlight -->
+        <div style="margin: 1.5rem 0 2.5rem 0; padding: 1.25rem 1.5rem; background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--emerald); border-radius: 8px;">
+          <h4 style="color: var(--emerald); font-family: 'Syne', sans-serif; font-size: 15px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔄 End-to-End Operational Lifecycle (دورة العمليات المخزنية المتكاملة)</h4>
+          <p style="font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6;">
+            يبدأ المسار بـ <strong>تكويد الصنف التلقائي وتحديد الرصيد الافتتاحي</strong> ← متابعة <strong>نبض المخزن وحركات الوارد والمنصرف اللحظية</strong> ← معالجة <strong>المرتجع المزدوج (إرجاع للمخزن + تسوية المورد)</strong> ← إتمام <strong>جلسات الجرد الرقمية ومطابقة العجز والزيادة واعتماد الفروق دفعة واحدة</strong>.
+          </p>
+        </div>
+
+        <!-- 3 Pillars -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--emerald); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">⚡ نبض المخزن والرصيد اللحظي</h4>
+            <p style="font-size: 14px; color: var(--muted);">لوحة مراقبة فورية تعرض الرصيد الحي، تنبيهات الأصناف منخفضة الرصيد لتفادي النواقص، مع اختصارات تشغيل سريعة لتسجيل حركات الوارد والمنصرف والطباعة الفورية.</p>
           </div>
-
-          <!-- 3 Functional Pillars -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--emerald); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">⚡ نبض المخزن والرصيد اللحظي</h4>
-              <p style="font-size: 14px; color: var(--muted);">لوحة مراقبة فورية تعرض الرصيد الحي، تنبيهات الأصناف منخفضة الرصيد لتفادي النواقص، مع اختصارات تشغيل سريعة لتسجيل حركات الوارد والمنصرف والطباعة الفورية.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔁 دورة المرتجع وتسوية المورد</h4>
-              <p style="font-size: 14px; color: var(--muted);">معالجة ذكية ومترابطة؛ بمجرد استقبال المرتجع يُعاد حسابه في رصيد المخزن فورياً، مع توثيق الحركة وتعليق مستحقات المورد حتى اعتماد الاستبدال أو التسوية المالية.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 جلسات الجرد ومطابقة الفروق</h4>
-              <p style="font-size: 14px; color: var(--muted);">جلسات جرد رقمية تمكن أمين المخزن من عدّ الواقع الفعلي لكل صنف، واحتساب الفروق تلقائياً ضد رصيد النظام، واعتماد التسوية المخزنية بضغطة زر دون توقف العمل.</p>
-            </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔁 دورة المرتجع وتسوية المورد</h4>
+            <p style="font-size: 14px; color: var(--muted);">معالجة ذكية ومترابطة؛ بمجرد استقبال المرتجع يُعاد حسابه في رصيد المخزن فورياً، مع توثيق الحركة وتعليق مستحقات المورد حتى اعتماد الاستبدال أو التسوية المالية.</p>
           </div>
-
-          <!-- Dependencies & Technical Blueprint Card -->
-          <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
-            <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
-              </div>
-              <span style="font-size: 11px; color: var(--emerald); background: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Makhzani Architecture Specs</span>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-              <!-- Code Section -->
-              <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
-                <span style="color: #f7768e;">dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.1.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">cloud_firestore:</span> <span style="color: #e0af68;">^5.6.5</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">firebase_auth:</span> <span style="color: #e0af68;">^5.5.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">isar:</span> <span style="color: #e0af68;">^3.1.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">printing:</span> <span style="color: #e0af68;">^5.13.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">pdf:</span> <span style="color: #e0af68;">^3.11.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">shared_preferences:</span> <span style="color: #e0af68;">^2.5.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">intl:</span> <span style="color: #e0af68;">^0.20.2</span><br>
-                <span style="color: #f7768e;">dev_dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_lints:</span> <span style="color: #e0af68;">^5.0.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_test:</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter
-              </div>
-              
-              <!-- Explanation Section -->
-              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
-                <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Makhzani Architectural Highlights</h5>
-                <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
-                  <li><strong>Atomic State Transitions (Bloc/Cubit):</strong> عزل كامل لمنطق احتساب الأرصدة وحركات التوريد والصرف مع ضمان ثبات البيانات ومنع الأرصدة السالبة.</li>
-                  <li><strong>Real-time Stock Ledger:</strong> تسجيل ذري لكل حركة (وارد، منصرف، مرتجع، استبدال، تسوية) مع إجمالي فوري وتتبع كامل لمسؤول الحركة.</li>
-                  <li><strong>Offline Resilience & Caching (Isar / SharedPreferences):</strong> استمرار تسجيل الحركات والجرد حتى في حال انقطاع الشبكة والمزامنة التلقائية فور عودة الاتصال.</li>
-                  <li><strong>Inventory Audit & Variance Engine:</strong> احتساب الفروق بين رصيد النظام والعدّ الفعلي في الذاكرة دون الكتابة حتى الاعتماد النهائي.</li>
-                  <li><strong>Thermal Receipts & PDF Reports (Printing):</strong> دعم كامل لطباعة تقارير الأرصدة وإيصالات استلام البضائع وطباعة الباركود.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-tags" style="margin-bottom: 2rem;">
-            <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">Flutter (Windows / Web / Mobile)</span>
-            <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">BLoC / Cubit State Management</span>
-            <span class="tag" style="background: rgba(34, 211, 176, 0.1); color: var(--teal);">Cloud Firestore Real-time Sync</span>
-            <span class="tag" style="background: rgba(245, 166, 35, 0.1); color: var(--amber);">Isar Offline-First Caching</span>
-            <span class="tag" style="background: rgba(79, 140, 255, 0.1); color: var(--accent);">Inventory Audit Engine</span>
-            <span class="tag" style="background: rgba(124, 92, 252, 0.1); color: var(--accent2);">Auto-SKU & Barcode Engine</span>
-            <span class="tag" style="background: rgba(244, 114, 182, 0.1); color: var(--pink);">ESC/POS Thermal Printing & PDF</span>
-            <span class="tag">Multi-Criteria Filter Engine</span>
-            <span class="tag">Clean Architecture & SOLID</span>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 جلسات الجرد ومطابقة الفروق</h4>
+            <p style="font-size: 14px; color: var(--muted);">جلسات جرد رقمية تمكن أمين المخزن من عدّ الواقع الفعلي لكل صنف، واحتساب الفروق تلقائياً ضد رصيد النظام، واعتماد التسوية المخزنية بضغطة زر دون توقف العمل.</p>
           </div>
         </div>
 
-        <!-- Screenshots Showcase Area with responsive mockups -->
-        <div style="width: 100%;">
-          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Makhzani Interactive Experience & Previews</h4>
+        <!-- Dependencies & Technical Blueprint Card -->
+        <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+          <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+              <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
+            </div>
+            <span style="font-size: 11px; color: var(--emerald); background: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Makhzani Architecture Specs</span>
+          </div>
           
-          <!-- Tab Switcher -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
+              <span style="color: #f7768e;">dependencies:</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^8.1.6</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">equatable:</span> <span style="color: #e0af68;">^2.0.5</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">supabase_flutter:</span> <span style="color: #e0af68;">^2.8.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">get_it:</span> <span style="color: #e0af68;">^7.7.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">shared_preferences:</span> <span style="color: #e0af68;">^2.3.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_secure_storage:</span> <span style="color: #e0af68;">^9.2.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">intl:</span> <span style="color: #e0af68;">^0.19.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">pdf:</span> <span style="color: #e0af68;">^3.11.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">printing:</span> <span style="color: #e0af68;">^5.13.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">excel:</span> <span style="color: #e0af68;">^4.0.6</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">file_picker:</span> <span style="color: #e0af68;">^8.1.4</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">esc_pos_utils_plus:</span> <span style="color: #e0af68;">^2.0.3</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">audioplayers:</span> <span style="color: #e0af68;">^6.1.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">window_manager:</span> <span style="color: #e0af68;">^0.3.9</span>
+            </div>
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
+              <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Architecture Decisions</h5>
+              <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
+                <li><strong>Supabase Flutter:</strong> إدارة التخزين السحابي وقواعد البيانات اللحظية ومزامنة الأرصدة عبر الأجهزة.</li>
+                <li><strong>BLoC / Cubit & Equatable:</strong> عزل منطق الأعمال تماماً عن واجهات المستخدم لضمان استقرار العمليات المحاسبية.</li>
+                <li><strong>PDF, Printing & ESC/POS:</strong> توليد التقارير والفواتير تلقائياً والطباعة الحرارية على طابعات الإيصالات.</li>
+                <li><strong>Excel & File Picker:</strong> تصدير واستيراد بيانات المخزون وجداول الجرد بصيغ XLSX للتكامل المحاسبي.</li>
+                <li><strong>Flutter Secure Storage:</strong> تشفير وحماية مفاتيح الاتصال وجلسات دخول أمناء المخازن.</li>
+                <li><strong>Window Manager:</strong> تخصيص تجربة التشغيل على أنظمة Windows Desktop بحجم وخصائص متوافقة.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screenshots Gallery -->
+        <div style="width: 100%; margin-bottom: 3rem;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Operational Screenshots & Modules</h4>
+          
           <div class="gallery-tabs">
-            <button class="gallery-tab active" data-tab="makhzani-dashboard">🖥️ Dashboard & Stock Pulse (نبض المخزن)</button>
-            <button class="gallery-tab" data-tab="makhzani-movements">🔄 Movements Engine (حركات الوارد والمنصرف)</button>
-            <button class="gallery-tab" data-tab="makhzani-returns">📦 Returns & Item Catalog (المرتجعات والتكويد)</button>
-            <button class="gallery-tab" data-tab="makhzani-audit">📊 Stock Audit Sessions (جلسات الجرد ومطابقة الفروق)</button>
+            <button class="gallery-tab active" data-tab="makhzani-stock">📦 Stock & Items</button>
+            <button class="gallery-tab" data-tab="makhzani-movements">🔄 Movements & Returns</button>
+            <button class="gallery-tab" data-tab="makhzani-audit">🎯 Digital Audit</button>
           </div>
 
-          <!-- Tab 1: Dashboard & Stock Pulse -->
-          <div id="makhzani-dashboard" class="gallery-container active">
-            
+          <!-- Tab 1: Stock & Items -->
+          <div id="makhzani-stock" class="gallery-container active">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_dashboard_stock.png</span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">dashboard_stock.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_dashboard_stock.png" alt="Makhzani Dashboard & Stock Pulse">
+                <img src="assets/image/makhzani_dashboard_stock.png" alt="Makhzani Dashboard & Stock Balance">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">نبض المخزن ورصيد العمليات (Warehouse Stock Pulse Dashboard)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">لوحة المتابعة الشاملة تعرض إجمالي الأصناف، حركات الوارد، المنصرف، وتنبيهات الرصيد المنخفض مع اختصارات الإجراءات الفورية ودليل الأصناف.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">لوحة رصيد المخزن (Stock Balance & Alerts)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">متابعة فورية للأصناف المتاحة، تنبيهات النواقص، والأزرار السريعة لحركات الإضافة والصرف.</div>
               </div>
             </div>
 
@@ -528,35 +1019,33 @@
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_login.png</span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">add_item.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_login.png" alt="Makhzani Login & Auth Workspace">
+                <img src="assets/image/makhzani_add_item.png" alt="Makhzani Add New Item">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">واجهة الدخول ومساحة العمل الهادئة (Minimalist Auth & Workspace)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">شاشة تسجيل دخول آمنة ومريحة بصرياً مخصصة لأمناء المخازن ومديري العمليات للوصول الآمن إلى المخزن الرئيسي.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تكويد صنف جديد (Add & Code New Item)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ذكية لتعيين اسم الصنف، الكود، الوحدة، حد الطلب، والرصيد الافتتاحي مع التحقق الفوري.</div>
               </div>
             </div>
-
           </div>
 
-          <!-- Tab 2: Movements Engine -->
+          <!-- Tab 2: Movements & Returns -->
           <div id="makhzani-movements" class="gallery-container">
-            
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_new_movement.png</span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">returns_settlement.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_new_movement.png" alt="Makhzani New Movement Inbound/Outbound">
+                <img src="assets/image/makhzani_returns_settlement.png" alt="Returns & Supplier Settlement">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل حركة مخزنية جديدة (New Movement - Inbound / Outbound)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة سريعة لتسجيل حركات التوريد والصرف مع فحص الرصيد المتاح آلياً ومنع تسجيل أي كميات سالبة.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">المرتجع وتسوية الموردين (Returns & Settlement)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تسجيل المرتجعات مع إعادة الصنف للرصيد وتعليق التسوية حتى اعتماد الإجراء المالي أو الاستبدال.</div>
               </div>
             </div>
 
@@ -565,195 +1054,147 @@
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_movements_log.png</span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">movements_log.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_movements_log.png" alt="Makhzani Movements & Audit Ledger">
+                <img src="assets/image/makhzani_movements_log.png" alt="Movements Log">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">سجل الحركات والتقارير الشامل (Comprehensive Movement Ledger)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">محرك بحث متطور وفلاتر زمنية وتصنيفية (وارد، منصرف، مرتجع عميل، رجوع للمورد، استبدال، تسوية) مع إجمالي فوري للقطع وحركات المخزن.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">سجل الحركات المخزنية (Movement Audit Log)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تتبع تفصيلي لكل حركة وارد ومنصرف ومرتجع وتعديل جرد مع توثيق التوقيت والمستخدم المسؤول.</div>
               </div>
             </div>
-
           </div>
 
-          <!-- Tab 3: Returns & Item Catalog -->
-          <div id="makhzani-returns" class="gallery-container">
-            
-            <div class="gallery-card">
-              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
-                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_returns_settlement.png</span>
-              </div>
-              <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_returns_settlement.png" alt="Makhzani Returns & Supplier Settlement">
-              </div>
-              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">استقبال المرتجع وتسوية الموردين (Returns Reception & Settlement)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">نظام متصل يرفع رصيد الصنف فور تسجيل الإرجاع، ويوثق المرتجع في قائمة انتظار تسوية المورد لاتخاذ قرار الاستبدال أو الخصم المالي.</div>
-              </div>
-            </div>
-
-            <div class="gallery-card">
-              <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
-                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_add_item.png</span>
-              </div>
-              <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_add_item.png" alt="Makhzani Add Item & Catalog">
-              </div>
-              <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">دليل المخزون وتكويد الأصناف (Item Definition & Auto SKU)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">نافذة إضافة وتوصيف الأصناف، تحديد وحدة التعبئة، الرصيد الافتتاحي، وتوليد الكود المخزني تلقائياً لمنع تكرار الأصناف.</div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Tab 4: Stock Audit Sessions -->
+          <!-- Tab 3: Digital Audit -->
           <div id="makhzani-audit" class="gallery-container">
-            
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
                 <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">makhzani_audit_session.png</span>
+                <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">audit_session.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/makhzani_audit_session.png" alt="Makhzani Stock Audit Session">
+                <img src="assets/image/makhzani_audit_session.png" alt="Digital Stock Audit Session">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">جلسات الجرد ومطابقة الفروق (Physical Inventory Audit Session)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة جرد تفاعلية لمطابقة الرصيد الفعلي على أرض الواقع مع رصيد النظام، كشف العجز والزيادة واعتماد التسوية بنقرة واحدة.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">جلسة الجرد الرقمية (Digital Stock Audit Session)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">مطابقة الرصيد الفعلي مع رصيد النظام، احتساب الفروق تلقائياً، واعتماد التسوية بضغطة زر واحدة.</div>
               </div>
             </div>
-
           </div>
+        </div>
 
-        </div> <!-- End of Makhzani screenshots showcase area -->
-      </div> <!-- End of Makhzani featured project card -->
+        <!-- Next Project Banner -->
+        <div class="case-study-next-project-banner">
+          <div>
+            <div class="next-project-eyebrow">Next Case Study</div>
+            <div class="next-project-name">Miss Safaa (صفاء زيدان) Web Platform</div>
+          </div>
+          <button class="btn-next-project" data-next-project="miss-safaa">
+            استكشف المشروع التالي
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
 
-      <!-- Featured Flutter Web Project: Miss Safaa -->
-      <div class="project-card featured reveal" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(34,211,176,0.25);">
-        <div style="width: 100%;">
-          <div class="featured-badge" style="background: rgba(34,211,176,0.12); color: var(--teal); border-color: rgba(34,211,176,0.25);">
-            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </article>
+
+
+      <!-- ==========================================
+           ARTICLE 3: MISS SAFAA WEB PLATFORM
+           ========================================== -->
+      <article id="case-study-miss-safaa" class="case-study-article">
+        
+        <div class="case-study-hero-banner">
+          <div class="case-study-badge badge-teal">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             Featured Production Flutter Web Platform
           </div>
-          <div class="project-icon" style="background:rgba(34,211,176,0.1); margin-top: 1rem;">📖</div>
-          <div class="project-header-row">
-            <div>
-              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Miss Safaa (صفاء زيدان)</div>
-              <div class="project-type" style="color: var(--teal); font-weight: 500;">Interactive Children Foundation Books & Web Platform</div>
-              <div style="margin: 0.5rem 0 1rem 0;">
-                <a href="https://miss-safaa.web.app/" target="_blank" class="project-live-btn" style="border-color: rgba(34,211,176,0.3); background: rgba(34,211,176,0.08); color: var(--teal);">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Website (miss-safaa.web.app)
-                </a>
-              </div>
-            </div>
-            <span class="platform-pill pill-multi" style="background: rgba(34,211,176,0.1); color: var(--teal);">Flutter Web (Production) · Full SEO & Responsive</span>
+          <h2 class="case-study-main-title">Miss Safaa (صفاء زيدان)</h2>
+          <div class="case-study-main-type" style="color: var(--teal);">Interactive Children Foundation Books & Web Platform</div>
+          <div class="case-study-platform-pill pill-multi" style="background: rgba(34,211,176,0.1); color: var(--teal);">
+            Flutter Web (Production) · Full SEO Engine & Responsive UI
           </div>
-          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
+          <div class="case-study-links-row">
+            <a href="https://miss-safaa.web.app/" target="_blank" class="project-live-btn" style="border-color: rgba(34,211,176,0.3); background: rgba(34,211,176,0.08); color: var(--teal);">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Website (miss-safaa.web.app) ↗
+            </a>
+          </div>
+          <p class="project-desc" style="font-size: 16px; line-height: 1.8; color: var(--text); margin-top: 1.25rem;">
             منصة تعليمية تفاعلية على الويب مخصصة لعرض وسرد كتب تأسيس وتطوير مهارات الأطفال (سلسلة كتب أ. صفاء زيدان التعليمية). صُممت وبُنيت بالكامل بتقنيات <strong>Flutter Web</strong> لتقديم تجربة تصفح هادئة وسريعة الاستجابة، مدعومة بمحرك متكامل لأرشفة محركات البحث (SEO Engine)، وتصميم متجاوب بنسبة 100% مع كافة الشاشات والأجهزة (Responsive UI)، وتكامل مباشر للطلب والتواصل عبر WhatsApp.
           </p>
+        </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🌐 Web SEO & Social Meta</h4>
-              <p style="font-size: 14px; color: var(--muted);">تهيئة شاملة لمحركات البحث وشبكات التواصل باستخدام حزمتي <code>seo</code> و <code>meta_seo</code> للتحكم الديناميكي بوسوم الميتا و OpenGraph لتسهيل الفهرسة والمشاركة.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">📐 Pixel-Perfect Responsive UI</h4>
-              <p style="font-size: 14px; color: var(--muted);">هندسة واجهات متكيفة بالكامل عبر <code>flutter_screenutil</code> لتناسب مقاسات شاشات الهواتف المحمولة، الأجهزة اللوحية، وشاشات الحواسيب المكتبية بتناسق تام.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">⚡ BLoC & Visibility Motion</h4>
-              <p style="font-size: 14px; color: var(--muted);">تطبيق معمارية BLoC/Cubit لفصل منطق الأعمال، مدعومة بحركات وظهور سلس للأقسام عند التمرير باستخدام <code>visibility_detector</code>.</p>
-            </div>
+        <!-- 3 Pillars -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🌐 Web SEO & Social Meta</h4>
+            <p style="font-size: 14px; color: var(--muted);">تهيئة شاملة لمحركات البحث وشبكات التواصل باستخدام حزمتي <code>seo</code> و <code>meta_seo</code> للتحكم الديناميكي بوسوم الميتا و OpenGraph لتسهيل الفهرسة والمشاركة.</p>
           </div>
-
-          <!-- Dependencies and Architecture YAML Card -->
-          <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
-            <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
-              </div>
-              <span style="font-size: 11px; color: var(--teal); background: rgba(34,211,176,0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Flutter Web Stack</span>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-              <!-- Code Section -->
-              <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
-                <span style="color: #f7768e;">dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">cupertino_icons:</span> <span style="color: #e0af68;">^1.0.8</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.2.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">cached_network_image:</span> <span style="color: #e0af68;">^3.4.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">equatable:</span> <span style="color: #e0af68;">^2.0.8</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">firebase_core:</span> <span style="color: #e0af68;">^4.10.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">url_launcher:</span> <span style="color: #e0af68;">^6.3.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">seo:</span> <span style="color: #e0af68;">^0.0.10</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">meta_seo:</span> <span style="color: #e0af68;">^3.0.9</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">webview_flutter_web:</span> <span style="color: #e0af68;">^0.2.3+4</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">intl:</span> <span style="color: #e0af68;">^0.20.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">visibility_detector:</span> <span style="color: #e0af68;">^0.4.0+2</span>
-              </div>
-              
-              <!-- Explanation Section -->
-              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
-                <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Flutter Web Packages Explained</h5>
-                <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
-                  <li><strong>seo & meta_seo:</strong> محرك تحسين أرشفة محركات البحث وتوليد الـ Meta Tags وعناوين OpenGraph ديناميكياً لـ Flutter Web.</li>
-                  <li><strong>flutter_screenutil:</strong> ضبط التناسق البصري والأبعاد بدقة عبر شاشات الهواتف والتابلت والحواسيب المكتبية.</li>
-                  <li><strong>easy_localization & intl:</strong> دعم اللغة العربية وتنسيق اتجاه الواجهة (RTL) والتواريخ والأرقام بسلاسة.</li>
-                  <li><strong>flutter_bloc & equatable:</strong> إدارة الحالة وفصل منطق الأعمال بدقة مع منع إعادة بناء الـ Widgets غير الضرورية.</li>
-                  <li><strong>cached_network_image:</strong> تحميل وتخزين صور الكتب والرسومات مؤقتاً لتسريع زمن استجابة الموقع.</li>
-                  <li><strong>visibility_detector:</strong> رصد ظهور الأقسام في شاشة المستخدم وتفعيل التحريكات والانتقالات التفاعلية.</li>
-                  <li><strong>url_launcher & firebase_core:</strong> ربط التواصل الفوري مع WhatsApp واستضافة الموقع عبر سحابة Firebase Hosting.</li>
-                </ul>
-              </div>
-            </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">📐 Pixel-Perfect Responsive UI</h4>
+            <p style="font-size: 14px; color: var(--muted);">هندسة واجهات متكيفة بالكامل عبر <code>flutter_screenutil</code> لتناسب مقاسات شاشات الهواتف المحمولة، الأجهزة اللوحية، وشاشات الحواسيب المكتبية بتناسق تام.</p>
           </div>
-
-          <div class="project-tags" style="margin-bottom: 2rem;">
-            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Flutter Web (Production)</span>
-            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">SEO Engine (meta_seo & seo)</span>
-            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit Architecture</span>
-            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">easy_localization (Arabic / RTL)</span>
-            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">flutter_screenutil (Responsive)</span>
-            <span class="tag">Firebase Hosting</span>
-            <span class="tag">url_launcher (WhatsApp direct)</span>
-            <span class="tag">visibility_detector (Scroll Motion)</span>
-            <span class="tag">cached_network_image</span>
-            <span class="tag">Equatable</span>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">⚡ BLoC & Visibility Motion</h4>
+            <p style="font-size: 14px; color: var(--muted);">تطبيق معمارية BLoC/Cubit لفصل منطق الأعمال، مدعومة بحركات وظهور سلس للأقسام عند التمرير باستخدام <code>visibility_detector</code>.</p>
           </div>
         </div>
 
-        <!-- Miss Safaa Screenshots Showcase Area -->
-        <div style="width: 100%;">
-          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Miss Safaa Web Platform Experience</h4>
+        <!-- Dependencies YAML Card -->
+        <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+          <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+              <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
+            </div>
+            <span style="font-size: 11px; color: var(--teal); background: rgba(34,211,176,0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Flutter Web Stack</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
+              <span style="color: #f7768e;">dependencies:</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.2.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">cached_network_image:</span> <span style="color: #e0af68;">^3.4.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">equatable:</span> <span style="color: #e0af68;">^2.0.8</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">firebase_core:</span> <span style="color: #e0af68;">^4.10.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">url_launcher:</span> <span style="color: #e0af68;">^6.3.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">seo:</span> <span style="color: #e0af68;">^0.0.10</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">meta_seo:</span> <span style="color: #e0af68;">^3.0.9</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">intl:</span> <span style="color: #e0af68;">^0.20.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">visibility_detector:</span> <span style="color: #e0af68;">^0.4.0+2</span>
+            </div>
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
+              <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Flutter Web Packages</h5>
+              <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
+                <li><strong>seo & meta_seo:</strong> محرك تحسين أرشفة محركات البحث وتوليد الـ Meta Tags وعناوين OpenGraph ديناميكياً لـ Flutter Web.</li>
+                <li><strong>flutter_screenutil:</strong> ضبط التناسق البصري والأبعاد بدقة عبر شاشات الهواتف والتابلت والحواسيب المكتبية.</li>
+                <li><strong>easy_localization & intl:</strong> دعم اللغة العربية وتنسيق اتجاه الواجهة (RTL) والتواريخ والأرقام بسلاسة.</li>
+                <li><strong>cached_network_image:</strong> تحميل وتخزين صور الكتب والرسومات مؤقتاً لتسريع زمن استجابة الموقع.</li>
+                <li><strong>visibility_detector:</strong> رصد ظهور الأقسام في شاشة المستخدم وتفعيل التحريكات والانتقالات التفاعلية.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-          <!-- Tab Switcher for Miss Safaa -->
+        <!-- Screenshots Showcase -->
+        <div style="width: 100%; margin-bottom: 3rem;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Miss Safaa Web Platform Experience</h4>
+          
           <div class="gallery-tabs">
-            <button class="gallery-tab active" data-tab="miss-safaa-landing">🌐 Live Web Platform Preview</button>
+            <button class="gallery-tab active" data-tab="safaa-preview">🌐 Live Web Platform Preview</button>
           </div>
 
-          <!-- Tab 1: Live Web Platform Preview -->
-          <div id="miss-safaa-landing" class="gallery-container active">
+          <div id="safaa-preview" class="gallery-container active">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -771,130 +1212,114 @@
             </div>
           </div>
         </div>
-      </div> <!-- End of Miss Safaa featured project card -->
 
-      <!-- Featured Mobile App Project: Bookia Store -->
-      <div class="project-card featured reveal" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(124,92,252,0.25);">
-        <div style="width: 100%;">
-          <div class="featured-badge" style="background: rgba(124,92,252,0.12); color: var(--accent2); border-color: rgba(124,92,252,0.2);">
-            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <!-- Next Project Banner -->
+        <div class="case-study-next-project-banner">
+          <div>
+            <div class="next-project-eyebrow">Next Case Study</div>
+            <div class="next-project-name">Bookia Store Mobile App</div>
+          </div>
+          <button class="btn-next-project" data-next-project="bookia">
+            استكشف المشروع التالي
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- ==========================================
+           ARTICLE 4: BOOKIA STORE
+           ========================================== -->
+      <article id="case-study-bookia" class="case-study-article">
+        
+        <div class="case-study-hero-banner">
+          <div class="case-study-badge badge-purple">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             Featured Mobile App Project
           </div>
-          <div class="project-icon" style="background:rgba(124,92,252,0.1); margin-top: 1rem;">📚</div>
-          <div class="project-header-row">
-            <div>
-              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Bookia Store</div>
-              <div class="project-type" style="color: var(--accent2); font-weight: 500;">Production-Style Bookstore App</div>
-            </div>
-            <span class="platform-pill pill-multi" style="background: rgba(124,92,252,0.1); color: var(--accent2);">Flutter iOS + Android Mobile App</span>
+          <h2 class="case-study-main-title">Bookia Store</h2>
+          <div class="case-study-main-type" style="color: var(--accent2);">Production-Style Bookstore Mobile App</div>
+          <div class="case-study-platform-pill pill-multi" style="background: rgba(124,92,252,0.1); color: var(--accent2);">
+            Flutter iOS + Android Mobile App · Clean Architecture
           </div>
-          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
+          <p class="project-desc" style="font-size: 16px; line-height: 1.8; color: var(--text);">
             تطبيق متكامل لبيع وتصفح الكتب بالهاتف المحمول مصمم بهندسة برمجية متكاملة (Feature-First + Clean Architecture)؛ يضم رحلة مصادقة مؤمنة بالكامل ومتجر كتب تفاعلي متصل بخوادم REST APIs ومزود بميزات السلة والمفضلة وحلول تخزين محلية وتحريكات متقدمة.
           </p>
+        </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔌 REST APIs Integration</h4>
-              <p style="font-size: 14px; color: var(--muted);">اتصال كامل بخادم متجر الكتب لإرسال واستقبال البيانات ومعالجة طلبات السلة والمفضلة والمصادقة بالاعتماد على مكتبة <code>Dio</code>.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔐 Secure Storage & Caching</h4>
-              <p style="font-size: 14px; color: var(--muted);">تخزين جلسات دخول العملاء والبيانات الحساسة محلياً بشكل مشفر بـ <code>flutter_secure_storage</code> وحفظ الإعدادات بـ <code>shared_preferences</code>.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">✨ Premium UX & Animations</h4>
-              <p style="font-size: 14px; color: var(--muted);">توفير تجربة مستخدم سلسة وحركات ذكية بالاعتماد على تحريكات <code>Rive</code> التفاعلية ومؤشرات تحميل هيكلية <code>Skeletonizer</code>.</p>
-            </div>
+        <!-- 3 Pillars -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔌 REST APIs Integration</h4>
+            <p style="font-size: 14px; color: var(--muted);">اتصال كامل بخادم متجر الكتب لإرسال واستقبال البيانات ومعالجة طلبات السلة والمفضلة والمصادقة بالاعتماد على مكتبة <code>Dio</code>.</p>
           </div>
-
-          <!-- Dependencies and Architecture YAML Card -->
-          <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
-            <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
-              </div>
-              <span style="font-size: 11px; color: var(--accent2); background: rgba(124,92,252,0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Dependencies Specs</span>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-              <!-- Code Section -->
-              <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
-                <span style="color: #f7768e;">dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">cupertino_icons:</span> <span style="color: #e0af68;">^1.0.8</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.2.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_gen:</span> <span style="color: #e0af68;">^5.12.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_svg:</span> <span style="color: #e0af68;">^2.2.3</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">pinput:</span> <span style="color: #e0af68;">^6.0.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">dio:</span> <span style="color: #e0af68;">^5.9.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">shared_preferences:</span> <span style="color: #e0af68;">^2.5.4</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_secure_storage:</span> <span style="color: #e0af68;">^10.0.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">carousel_slider:</span> <span style="color: #e0af68;">^5.1.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">smooth_page_indicator:</span> <span style="color: #e0af68;">^2.0.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">meta:</span> <span style="color: #e0af68;">^1.17.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">skeletonizer:</span> <span style="color: #e0af68;">^2.1.3</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">rive:</span> <span style="color: #e0af68;">^0.14.4</span><br>
-                <span style="color: #f7768e;">dev_dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_native_splash:</span> <span style="color: #e0af68;">^2.4.7</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_test:</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_lints:</span> <span style="color: #e0af68;">^6.0.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">build_runner:</span> <span style="color: #e0af68;">^2.11.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_gen_runner:</span> <span style="color: #e0af68;">^5.12.0</span>
-              </div>
-              
-              <!-- Explanation Section -->
-              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
-                <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Dependencies Explained</h5>
-                <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
-                  <li><strong>Dio (v5.9.1):</strong> إرسال طلبات الـ HTTP والتعامل مع الـ Interceptors وإدارة اتصالات الـ REST APIs.</li>
-                  <li><strong>Bloc & Flutter Bloc (v9.x):</strong> فصل منطق الأعمال (Business Logic) وإدارة الحالة بنمط Cubits بشكل متكامل ومنظم.</li>
-                  <li><strong>Skeletonizer (v2.1.3):</strong> إظهار مؤشرات تحميل هيكلية (Shimmer) تلقائية وجذابة متلائمة مع حجم العناصر أثناء جلب البيانات.</li>
-                  <li><strong>Local Storage (SharedPreferences & Secure Storage):</strong> التخزين المحلي الآمن لبيانات الدخول المشفرة والتوكنز والإعدادات الأساسية.</li>
-                  <li><strong>easy_localization (v3.0.8):</strong> دعم اللغتين العربية والإنجليزية بشكل ديناميكي مع تغيير اتجاه التطبيق بالكامل.</li>
-                  <li><strong>Pinput (v6.0.2):</strong> حقل إدخال كود التحقق (OTP) مخصص وذو استجابة سلسة مدعوم بالتحقق التلقائي.</li>
-                </ul>
-              </div>
-            </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔐 Secure Storage & Caching</h4>
+            <p style="font-size: 14px; color: var(--muted);">تخزين جلسات دخول العملاء والبيانات الحساسة محلياً بشكل مشفر بـ <code>flutter_secure_storage</code> وحفظ الإعدادات بـ <code>shared_preferences</code>.</p>
           </div>
-
-          <div class="project-tags" style="margin-bottom: 2rem;">
-            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">Flutter Mobile (iOS/Android)</span>
-            <span class="tag" style="background: rgba(124,92,252,0.1); color: var(--accent2);">BLoC / Cubit State Management</span>
-            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">Clean + Feature-First Architecture</span>
-            <span class="tag" style="background: rgba(34,211,176,0.1); color: var(--teal);">REST APIs Integration (Dio)</span>
-            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">easy_localization (Ar/En)</span>
-            <span class="tag" style="background: rgba(245,166,35,0.1); color: var(--amber);">flutter_screenutil</span>
-            <span class="tag">Secure Storage & SharedPreferences</span>
-            <span class="tag">Skeletonizer (Shimmer Loaders)</span>
-            <span class="tag">Pinput (OTP fields)</span>
-            <span class="tag">Carousel Slider & Smooth Indicators</span>
-            <span class="tag">Rive & Native Splash Animations</span>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">✨ Premium UX & Animations</h4>
+            <p style="font-size: 14px; color: var(--muted);">توفير تجربة مستخدم سلسة وحركات ذكية بالاعتماد على تحريكات <code>Rive</code> ومؤشرات تحميل هيكلية <code>Skeletonizer</code>.</p>
           </div>
         </div>
 
-        <!-- Bookia Screenshots Showcase Area -->
-        <div style="width: 100%;">
-          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Bookia Mobile Application Journey</h4>
+        <!-- Dependencies YAML Card -->
+        <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+          <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+              <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
+            </div>
+            <span style="font-size: 11px; color: var(--accent2); background: rgba(124,92,252,0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Dependencies Specs</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
+              <span style="color: #f7768e;">dependencies:</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter:</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter<br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_screenutil:</span> <span style="color: #e0af68;">^5.9.3</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.2.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">pinput:</span> <span style="color: #e0af68;">^6.0.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">dio:</span> <span style="color: #e0af68;">^5.9.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">shared_preferences:</span> <span style="color: #e0af68;">^2.5.4</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_secure_storage:</span> <span style="color: #e0af68;">^10.0.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">carousel_slider:</span> <span style="color: #e0af68;">^5.1.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">smooth_page_indicator:</span> <span style="color: #e0af68;">^2.0.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">skeletonizer:</span> <span style="color: #e0af68;">^2.1.3</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">rive:</span> <span style="color: #e0af68;">^0.14.4</span>
+            </div>
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
+              <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Key Architecture Decisions</h5>
+              <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
+                <li><strong>Dio (v5.9.1):</strong> إرسال طلبات الـ HTTP والتعامل مع الـ Interceptors وإدارة اتصالات الـ REST APIs.</li>
+                <li><strong>Bloc & Flutter Bloc (v9.x):</strong> فصل منطق الأعمال وإدارة الحالة بنمط Cubits بشكل متكامل.</li>
+                <li><strong>Skeletonizer:</strong> إظهار مؤشرات تحميل هيكلية تلقائية وجذابة متلائمة مع حجم العناصر.</li>
+                <li><strong>Secure Storage:</strong> التخزين المحلي الآمن لبيانات الدخول والتوكنز والإعدادات.</li>
+                <li><strong>Pinput:</strong> حقل إدخال كود التحقق (OTP) مخصص وذو استجابة سلسة.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-          <!-- Tab Switcher for Bookia -->
+        <!-- Screenshots Showcase Area -->
+        <div style="width: 100%; margin-bottom: 3rem;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Bookia Mobile Application Journey</h4>
+          
           <div class="gallery-tabs">
-            <button class="gallery-tab active" data-tab="bookia-welcome">👋 Entry & Onboarding</button>
-            <button class="gallery-tab" data-tab="bookia-login">🔑 Login & Register</button>
-            <button class="gallery-tab" data-tab="bookia-verification">🛡️ Password Recovery & OTP</button>
-            <button class="gallery-tab" data-tab="bookia-shop">🏠 Core Shop Features (API)</button>
+            <button class="gallery-tab active" data-tab="bookia-welcome-m">👋 Entry & Onboarding</button>
+            <button class="gallery-tab" data-tab="bookia-login-m">🔑 Login & Register</button>
+            <button class="gallery-tab" data-tab="bookia-verification-m">🛡️ Password Recovery & OTP</button>
+            <button class="gallery-tab" data-tab="bookia-shop-m">🏠 Core Shop Features</button>
           </div>
 
           <!-- Tab 1: Entry & Onboarding -->
-          <div id="bookia-welcome" class="gallery-container active">
-            
+          <div id="bookia-welcome-m" class="gallery-container active">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -926,12 +1351,10 @@
                 <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ترحيبية مصقولة تتيح للمستخدم الاختيار المباشر بين تسجيل الدخول أو إنشاء حساب جديد.</div>
               </div>
             </div>
-
           </div>
 
           <!-- Tab 2: Login & Register -->
-          <div id="bookia-login" class="gallery-container">
-            
+          <div id="bookia-login-m" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -944,7 +1367,7 @@
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
                 <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل الدخول (Login Screen)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة تسجيل الدخول مع حقول إدخال آمنة لكلمة المرور وربط بريد العميل الإلكتروني وخيارات الدخول البديلة.</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة تسجيل الدخول مع حقول إدخال آمنة لكلمة المرور وربط بريد العميل الإلكتروني.</div>
               </div>
             </div>
 
@@ -963,12 +1386,10 @@
                 <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة تسجيل متكاملة للعملاء الجدد تطلب البريد، الاسم، وتأكيد كلمة المرور بشكل متناسق وسلس.</div>
               </div>
             </div>
-
           </div>
 
-          <!-- Tab 3: Password Recovery & OTP -->
-          <div id="bookia-verification" class="gallery-container">
-            
+          <!-- Tab 3: Verification & OTP -->
+          <div id="bookia-verification-m" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -1032,12 +1453,10 @@
                 <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">شاشة تأكيد نجاح إعادة تعيين الحساب بنجاح وإمكانية تسجيل الدخول الفوري بكلمة المرور الجديدة.</div>
               </div>
             </div>
-
           </div>
 
-          <!-- Tab 4: Core Shop Features (API) -->
-          <div id="bookia-shop" class="gallery-container">
-            
+          <!-- Tab 4: Shop Core -->
+          <div id="bookia-shop-m" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -1050,7 +1469,7 @@
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
                 <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">شاشة المتجر الرئيسية (Bookstore Home Screen)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تصفح الكتب الأكثر مبيعاً (Best Seller)، الكتب الحديثة، التمرير بين الإعلانات (Carousel Slider)، والتنقل عبر شريط التنقل السفلي.</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تصفح الكتب الأكثر مبيعاً (Best Seller)، الكتب الحديثة، والتمرير بين الإعلانات (Carousel Slider).</div>
               </div>
             </div>
 
@@ -1085,151 +1504,135 @@
                 <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">إدارة الكميات والكتب المختارة وحساب المجموع الكلي، مدعومة بمؤشرات تحميل هيكلية (Skeletonizer).</div>
               </div>
             </div>
-
-          </div> <!-- End of bookia-shop gallery container -->
-
-        </div> <!-- End of Bookia screenshots showcase area -->
-      </div> <!-- End of Bookia featured project card -->
-
-      <!-- Featured Mobile App Project: Vaygoo -->
-      <div class="project-card featured reveal" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; border-color: rgba(249, 115, 22, 0.25);">
-        <div style="width: 100%;">
-          <div class="featured-badge" style="background: rgba(249, 115, 22, 0.12); color: #f97316; border-color: rgba(249, 115, 22, 0.25);">
-            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            Featured Multi-Platform Tourism Ecosystem
-          </div>
-          <div class="project-icon" style="background: rgba(249, 115, 22, 0.1); margin-top: 1rem;">🛎️</div>
-          <div class="project-header-row">
-            <div>
-              <div class="project-name" style="font-size: 28px; font-family: 'Syne', sans-serif;">Vaygoo</div>
-              <div class="project-type" style="color: #f97316; font-weight: 500;">Collaborative On-Demand Service & Tourism Platform</div>
-              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 0.5rem 0 1rem 0;">
-                <a href="https://www.vaygoo.com" target="_blank" class="project-live-btn" style="border-color: rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.08); color: #f97316;">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Web Platform (www.vaygoo.com)
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.vaygoo.travel" target="_blank" class="project-live-btn" style="border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.08); color: var(--green);">
-                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.43 2.43 0 0 1-.61-.75V2.564c.163-.3.376-.56.609-.75zm11.246 11.248l2.585 2.586-11.45 6.611 8.865-9.197zm0-2.124L5.99 1.74l11.45 6.612-2.585 2.586zm1.472 1.062l3.414 1.972a1.328 1.328 0 0 1 0 2.056l-3.414 1.972-2.327-2.328 2.327-2.672z"/></svg>
-                  Google Play Store (App)
-                </a>
-              </div>
-            </div>
-            <span class="platform-pill pill-multi" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Flutter iOS + Android App & Web Platform (www.vaygoo.com)</span>
-          </div>
-          
-          <p class="project-desc" style="font-size: 16px; margin: 1.5rem 0; max-width: 850px; color: var(--text);">
-            منظومة سياحية وخدمية متكاملة لربط السياح والعملاء بمقدمي الخدمات والرحلات الترفيهية في مدينة الغردقة (رحلات بحرية، سفاري الصحراء، مساج وسبا، وصالونات تجميل). تتضمن المنظومة <strong>تطبيق الهاتف المحمول (iOS / Android)</strong>، و<strong>بوابة الويب الرسمية الحية (www.vaygoo.com)</strong>، ولوحة تحكم إدارية. تم تطوير المشروع بالتعاون مع فريق برمجي، مما صقل مهارات العمل الجماعي، وإدارة الشيفرة عبر Git & GitHub، وتقسيم المهام والبرانشات وحل التعارضات برمجياً.
-          </p>
-
-          <!-- Contribution & Soft Skills Highlighting -->
-          <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(249, 115, 22, 0.05); border-left: 4px solid #f97316; border-radius: 8px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
-            <h4 style="color: #f97316; font-family: 'Syne', sans-serif; font-size: 15px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🤝 Team Collaboration & Git Workflow (العمل الجماعي وإدارة الجيت)</h4>
-            <p style="font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6;">
-              مشروع جماعي متكامل صُقلت فيه مهارات التنسيق البرمجي. تم استخدام منهجية <code>GitFlow</code> لإدارة الشيفرة البرمجية عبر الفروع (Feature Branches)، وتقديم طلبات الدمج (Pull Requests)، وحل التعارضات (Merge Conflicts) مع مراجعة الأكواد (Code Reviews).
-            </p>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔑 OAuth Authentication</h4>
-              <p style="font-size: 14px; color: var(--muted);">تطوير وتكامل وحدات تسجيل الدخول الموحد والتأكيد من خلال Google و Facebook OAuth لتسهيل رحلة دخول العميل الآمنة.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🌍 Layout, Cities & Profile</h4>
-              <p style="font-size: 14px; color: var(--muted);">تنظيم الكاتيجري وترتيب عناصر الصفحة الرئيسية، بالإضافة إلى إضافة محدد المدن الديناميكي وتهيئة ملف تعريف المستخدم واللغات.</p>
-            </div>
-            <div style="background: var(--bg3); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
-              <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">💾 Database & Supabase</h4>
-              <p style="font-size: 14px; color: var(--muted);">الاتصال بقاعدة بيانات Supabase واسترجاع بيانات الحجوزات والطلبات، بالإضافة للتخزين المحلي وإعدادات الإشعارات.</p>
-            </div>
-          </div>
-
-          <!-- Dependencies and Architecture YAML Card -->
-          <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
-            <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
-                <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
-                <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
-              </div>
-              <span style="font-size: 11px; color: #f97316; background: rgba(249, 115, 22, 0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Dependencies Specs</span>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-              <!-- Code Section -->
-              <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
-                <span style="color: #f7768e;">dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.1.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">supabase_flutter:</span> <span style="color: #e0af68;">^2.8.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">google_sign_in:</span> <span style="color: #e0af68;">^7.2.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">google_maps_flutter:</span> <span style="color: #e0af68;">^2.10.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">geolocator:</span> <span style="color: #e0af68;">^13.0.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">hive_flutter:</span> <span style="color: #e0af68;">^1.1.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">app_links:</span> <span style="color: #e0af68;">^6.4.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">carousel_slider:</span> <span style="color: #e0af68;">^5.1.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">cached_network_image:</span> <span style="color: #e0af68;">^3.4.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">webview_flutter:</span> <span style="color: #e0af68;">^4.13.1</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">wheel_picker:</span> <span style="color: #e0af68;">^0.2.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">hugeicons:</span> <span style="color: #e0af68;">^1.1.5</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">pinput:</span> <span style="color: #e0af68;">^5.0.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">qr_flutter:</span> <span style="color: #e0af68;">^4.1.0</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">shimmer:</span> <span style="color: #e0af68;">^3.0.0</span><br>
-                <span style="color: #f7768e;">dev_dependencies:</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_launcher_icons:</span> <span style="color: #e0af68;">^0.14.2</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_native_splash:</span> <span style="color: #e0af68;">^2.4.3</span><br>
-                &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_test:</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7aa2f7;">sdk:</span> flutter
-              </div>
-              
-              <!-- Explanation Section -->
-              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
-                <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Vaygoo Package Architecture</h5>
-                <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
-                  <li><strong>Supabase Flutter (v2.8.0):</strong> المحرك الخلفي لإدارة بيانات الخدمات والمستخدمين والحجوزات الفورية.</li>
-                  <li><strong>Social Logins & Auth:</strong> دمج <code>google_sign_in</code> لخدمة مصادقة المستخدمين بسلاسة وأمان.</li>
-                  <li><strong>Google Maps & Geolocator:</strong> إظهار الخرائط التفاعلية وتحديد مواقع مقدمي الخدمات والعملاء جغرافياً.</li>
-                  <li><strong>Hive & Hive Flutter (v1.1.0):</strong> التخزين المحلي السريع للإعدادات والبيانات غير الحساسة لتسريع أداء التطبيق.</li>
-                  <li><strong>App Links (v6.4.1):</strong> تهيئة وتمرير الروابط العميقة (Deep Links) لتوجيه المستخدمين لصفحات مخصصة في التطبيق.</li>
-                  <li><strong>State & UI Polish:</strong> استخدام <code>flutter_bloc</code> لإدارة الحالة، و <code>carousel_slider</code> للصفحة الرئيسية، و <code>wheel_picker</code>.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-tags" style="margin-bottom: 2rem;">
-            <span class="tag" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Flutter (iOS/Android)</span>
-            <span class="tag" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Git & GitHub Team Work</span>
-            <span class="tag" style="background: rgba(34, 211, 176, 0.1); color: var(--teal);">Supabase Backend Services</span>
-            <span class="tag" style="background: rgba(34, 211, 176, 0.1); color: var(--teal);">Google & Facebook OAuth Auth</span>
-            <span class="tag" style="background: rgba(245, 166, 35, 0.1); color: var(--amber);">Google Maps & Geolocation</span>
-            <span class="tag" style="background: rgba(245, 166, 35, 0.1); color: var(--amber);">Hive Local Caching</span>
-            <span class="tag" style="background: rgba(74, 222, 128, 0.1); color: var(--green);">Google Play (Published)</span>
-            <span class="tag" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">Live Web (www.vaygoo.com)</span>
-            <span class="tag">App Links & Deep Linking</span>
-            <span class="tag">easy_localization (Multi-language)</span>
-            <span class="tag">BLoC / Cubit State Management</span>
-            <span class="tag">Wheel Picker & Carousel Slider</span>
-            <span class="tag">Shimmer & Custom Webviews</span>
           </div>
         </div>
 
-        <!-- Vaygoo Screenshots Showcase Area -->
-        <div style="width: 100%;">
-          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Vaygoo Multi-Platform Journey</h4>
+        <!-- Next Project Banner -->
+        <div class="case-study-next-project-banner">
+          <div>
+            <div class="next-project-eyebrow">Next Case Study</div>
+            <div class="next-project-name">Vaygoo Tourism Ecosystem</div>
+          </div>
+          <button class="btn-next-project" data-next-project="vaygoo">
+            استكشف المشروع التالي
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
 
-          <!-- Tab Switcher for Vaygoo -->
+      </article>
+
+
+      <!-- ==========================================
+           ARTICLE 5: VAYGOO PLATFORM
+           ========================================== -->
+      <article id="case-study-vaygoo" class="case-study-article">
+        
+        <div class="case-study-hero-banner">
+          <div class="case-study-badge badge-orange">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Featured Multi-Platform Tourism Ecosystem
+          </div>
+          <h2 class="case-study-main-title">Vaygoo</h2>
+          <div class="case-study-main-type" style="color: #f97316;">Collaborative On-Demand Service & Tourism Platform</div>
+          <div class="case-study-platform-pill pill-multi" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">
+            Flutter iOS + Android App & Web Platform (www.vaygoo.com)
+          </div>
+          <div class="case-study-links-row">
+            <a href="https://www.vaygoo.com" target="_blank" class="project-live-btn" style="border-color: rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.08); color: #f97316;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Web Platform (www.vaygoo.com) ↗
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.vaygoo.travel" target="_blank" class="project-live-btn" style="border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.08); color: var(--green);">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.43 2.43 0 0 1-.61-.75V2.564c.163-.3.376-.56.609-.75zm11.246 11.248l2.585 2.586-11.45 6.611 8.865-9.197zm0-2.124L5.99 1.74l11.45 6.612-2.585 2.586zm1.472 1.062l3.414 1.972a1.328 1.328 0 0 1 0 2.056l-3.414 1.972-2.327-2.328 2.327-2.672z"/></svg>
+              Google Play Store (App) ↗
+            </a>
+          </div>
+          <p class="project-desc" style="font-size: 16px; line-height: 1.8; color: var(--text); margin-top: 1.25rem;">
+            منظومة سياحية وخدمية متكاملة لربط السياح والعملاء بمقدمي الخدمات والرحلات الترفيهية في مدينة الغردقة (رحلات بحرية، سفاري الصحراء، مساج وسبا، وصالونات تجميل). تتضمن المنظومة <strong>تطبيق الهاتف المحمول (iOS / Android)</strong>، و<strong>بوابة الويب الرسمية الحية (www.vaygoo.com)</strong>، ولوحة تحكم إدارية. تم تطوير المشروع بالتعاون مع فريق برمجي، مما صقل مهارات العمل الجماعي، وإدارة الشيفرة عبر Git & GitHub، وتقسيم المهام والبرانشات وحل التعارضات برمجياً.
+          </p>
+        </div>
+
+        <!-- Team Collaboration Highlight -->
+        <div style="margin: 1.5rem 0 2.5rem 0; padding: 1.25rem 1.5rem; background: rgba(249, 115, 22, 0.05); border-left: 4px solid #f97316; border-radius: 8px;">
+          <h4 style="color: #f97316; font-family: 'Syne', sans-serif; font-size: 15px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🤝 Team Collaboration & Git Workflow (العمل الجماعي وإدارة الجيت)</h4>
+          <p style="font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6;">
+            مشروع جماعي متكامل صُقلت فيه مهارات التنسيق البرمجي. تم استخدام منهجية <code>GitFlow</code> لإدارة الشيفرة البرمجية عبر الفروع (Feature Branches)، وتقديم طلبات الدمج (Pull Requests)، وحل التعارضات (Merge Conflicts) مع مراجعة الأكواد (Code Reviews).
+          </p>
+        </div>
+
+        <!-- 3 Pillars -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--accent); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🔑 OAuth Authentication</h4>
+            <p style="font-size: 14px; color: var(--muted);">تطوير وتكامل وحدات تسجيل الدخول الموحد والتأكيد من خلال Google و Facebook OAuth لتسهيل رحلة دخول العميل الآمنة.</p>
+          </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--teal); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🌍 Layout, Cities & Profile</h4>
+            <p style="font-size: 14px; color: var(--muted);">تنظيم الكاتيجري وترتيب عناصر الصفحة الرئيسية، بالإضافة إلى إضافة محدد المدن الديناميكي وتهيئة ملف تعريف المستخدم واللغات.</p>
+          </div>
+          <div style="background: var(--bg3); padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border);">
+            <h4 style="color: var(--amber); font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">💾 Database & Supabase</h4>
+            <p style="font-size: 14px; color: var(--muted);">الاتصال بقاعدة بيانات Supabase واسترجاع بيانات الحجوزات والطلبات، بالإضافة للتخزين المحلي وإعدادات الإشعارات.</p>
+          </div>
+        </div>
+
+        <!-- Dependencies YAML Card -->
+        <div style="margin: 2.5rem 0; background: #13131a; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+          <div style="background: #1c1c24; padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></span>
+              <span style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></span>
+              <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--text); font-family: monospace;">pubspec.yaml</span>
+            </div>
+            <span style="font-size: 11px; color: #f97316; background: rgba(249, 115, 22, 0.1); padding: 2px 8px; border-radius: 4px; font-family: monospace;">Dependencies Specs</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <div style="padding: 1.5rem; background: #0f0f15; border-right: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; color: #a9b1d6;">
+              <span style="color: #f7768e;">dependencies:</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">bloc:</span> <span style="color: #e0af68;">^9.1.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">flutter_bloc:</span> <span style="color: #e0af68;">^9.1.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">supabase_flutter:</span> <span style="color: #e0af68;">^2.8.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">google_sign_in:</span> <span style="color: #e0af68;">^7.2.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">google_maps_flutter:</span> <span style="color: #e0af68;">^2.10.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">geolocator:</span> <span style="color: #e0af68;">^13.0.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">hive_flutter:</span> <span style="color: #e0af68;">^1.1.0</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">app_links:</span> <span style="color: #e0af68;">^6.4.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">easy_localization:</span> <span style="color: #e0af68;">^3.0.8</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">carousel_slider:</span> <span style="color: #e0af68;">^5.1.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">cached_network_image:</span> <span style="color: #e0af68;">^3.4.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">webview_flutter:</span> <span style="color: #e0af68;">^4.13.1</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">wheel_picker:</span> <span style="color: #e0af68;">^0.2.2</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">hugeicons:</span> <span style="color: #e0af68;">^1.1.5</span><br>
+              &nbsp;&nbsp;<span style="color: #9ece6a;">pinput:</span> <span style="color: #e0af68;">^5.0.2</span>
+            </div>
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: var(--bg2);">
+              <h5 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 14px; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">🎯 Vaygoo Package Architecture</h5>
+              <ul style="font-size: 13px; color: var(--muted); margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; line-height: 1.6;">
+                <li><strong>Supabase Flutter (v2.8.0):</strong> المحرك الخلفي لإدارة بيانات الخدمات والمستخدمين والحجوزات الفورية.</li>
+                <li><strong>Social Logins & Auth:</strong> دمج <code>google_sign_in</code> لخدمة مصادقة المستخدمين بسلاسة وأمان.</li>
+                <li><strong>Google Maps & Geolocator:</strong> إظهار الخرائط التفاعلية وتحديد مواقع مقدمي الخدمات والعملاء جغرافياً.</li>
+                <li><strong>Hive & Hive Flutter:</strong> التخزين المحلي السريع للإعدادات والبيانات لتسريع أداء التطبيق.</li>
+                <li><strong>App Links:</strong> تهيئة وتمرير الروابط العميقة (Deep Links) لتوجيه المستخدمين لصفحات مخصصة في التطبيق.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screenshots Showcase Area -->
+        <div style="width: 100%; margin-bottom: 3rem;">
+          <h4 style="font-family: 'Syne', sans-serif; color: var(--text); font-size: 16px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">📸 Vaygoo Multi-Platform Journey</h4>
+          
           <div class="gallery-tabs">
-            <button class="gallery-tab active" data-tab="vaygoo-web">🌐 Live Web Platform (www.vaygoo.com)</button>
-            <button class="gallery-tab" data-tab="vaygoo-client">👤 Client Mobile Experience</button>
-            <button class="gallery-tab" data-tab="vaygoo-provider">💼 Provider Dashboard</button>
-            <button class="gallery-tab" data-tab="vaygoo-bookings">📅 Reservations & Orders</button>
+            <button class="gallery-tab active" data-tab="vaygoo-web-m">🌐 Live Web Platform (www.vaygoo.com)</button>
+            <button class="gallery-tab" data-tab="vaygoo-client-m">👤 Client Mobile Experience</button>
+            <button class="gallery-tab" data-tab="vaygoo-provider-m">💼 Provider Dashboard</button>
+            <button class="gallery-tab" data-tab="vaygoo-bookings-m">📅 Reservations & Orders</button>
           </div>
 
           <!-- Tab 1: Web Platform Experience -->
-          <div id="vaygoo-web" class="gallery-container active">
+          <div id="vaygoo-web-m" class="gallery-container active">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -1242,14 +1645,13 @@
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
                 <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">بوابة الخدمات السياحية على الويب (Vaygoo Web Portal)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ويب شاملة لاستعراض باقات الرحلات البحرية (Sea Cruises)، رحلات السفاري، المساج والسبا، مع أزرار التحويل لتطبيقات Google Play و App Store والتبديل بين اللغتين العربية والإنجليزية.</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة ويب شاملة لاستعراض باقات الرحلات البحرية (Sea Cruises)، رحلات السفاري، المساج والسبا، مع أزرار التحويل لتطبيقات المتاجر.</div>
               </div>
             </div>
           </div>
 
           <!-- Tab 2: Client Experience -->
-          <div id="vaygoo-client" class="gallery-container">
-            
+          <div id="vaygoo-client-m" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -1258,11 +1660,11 @@
                 <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">vaygoo_login.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/vaygoo_login.png" alt="Vaygoo Login Screen">
+                <img src="assets/image/vaygoo_login.png" alt="Vaygoo Mobile Login Screen">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل الدخول الموحد (Unified Social Logins)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">شاشة الدخول والمصادقة للعملاء، تدعم الدخول بالبريد الإلكتروني أو حسابات التواصل Google و Facebook و Apple.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">تسجيل الدخول والمصادقة (Social & OTP Login)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة تسجيل دخول سلسة تدعم Google Sign-In وتأكيد الهوية للعملاء ومقدمي الخدمات.</div>
               </div>
             </div>
 
@@ -1277,16 +1679,14 @@
                 <img src="assets/image/vaygoo_client_home.png" alt="Vaygoo Client Home Screen">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">الصفحة الرئيسية للعميل (Client Home & Categories)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تنظيم وعرض الفئات والخدمات المتاحة بشكل أفقي (مثل Beauty Salon, Boat Trips) وعرض البطاقات التسويقية بخصومات ديناميكية.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">شاشة العميل الرئيسية (Client Home Screen)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">تصفح أقسام الخدمات السياحية (صالونات تجميل، مساج، سفاري، رحلات بحرية) مع محدد المدن الديناميكي.</div>
               </div>
             </div>
-
           </div>
 
-          <!-- Tab 2: Provider Experience -->
-          <div id="vaygoo-provider" class="gallery-container">
-            
+          <!-- Tab 3: Provider Dashboard -->
+          <div id="vaygoo-provider-m" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -1295,11 +1695,11 @@
                 <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">vaygoo_provider_home.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/vaygoo_provider_home.png" alt="Vaygoo Provider Dashboard">
+                <img src="assets/image/vaygoo_provider_home.png" alt="Vaygoo Provider Home Screen">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">لوحة تحكم مزود الخدمة (Provider Earnings Panel)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">واجهة شاملة لمزودي الخدمات لمتابعة الإيرادات (EGP)، المعاملات المالية المعلقة، خيارات الدفع وطلب سحب الرصيد (Cash Out).</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">لوحة تحكم مقدم الخدمة (Provider Dashboard)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">إدارة الخدمات المضافة، التحكم في الأسعار ومواعيد العمل وتلقي الحجوزات المباشرة.</div>
               </div>
             </div>
 
@@ -1311,19 +1711,17 @@
                 <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">vaygoo_add_service.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/vaygoo_add_service.png" alt="Vaygoo Add Service Form">
+                <img src="assets/image/vaygoo_add_service.png" alt="Vaygoo Add Service">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">إضافة خدمة جديدة (Register New Service)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">نموذج إدخال متكامل لمزودي الخدمات لرفع صورة الغلاف، كتابة عنوان ووصف الخدمة، واختيار القسم الرئيسي والفرعي.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">إضافة خدمة سياحية جديدة (Add Tourism Service)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">نموذج متكامل لتحديد نوع الخدمة، رفع الصور، وتحديد الموقع الجغرافي وتفاصيل الباقة.</div>
               </div>
             </div>
-
           </div>
 
-          <!-- Tab 3: Reservations & Orders -->
-          <div id="vaygoo-bookings" class="gallery-container">
-            
+          <!-- Tab 4: Reservations & Orders -->
+          <div id="vaygoo-bookings-m" class="gallery-container">
             <div class="gallery-card">
               <div style="background: #1c1c24; padding: 8px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid var(--border);">
                 <span style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></span>
@@ -1332,197 +1730,33 @@
                 <span style="margin-left: 10px; font-size: 11px; color: var(--muted); font-family: monospace;">vaygoo_bookings.png</span>
               </div>
               <div class="gallery-card-img-container">
-                <img src="assets/image/vaygoo_bookings.png" alt="Vaygoo Reservations List">
+                <img src="assets/image/vaygoo_bookings.png" alt="Vaygoo Bookings Management">
               </div>
               <div style="padding: 1rem; border-top: 1px solid var(--border); background: var(--bg3); flex-grow: 1;">
-                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">إدارة الحجوزات والطلبات (Active Reservations List)</div>
-                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">قائمة تتبع الطلبات والحجوزات الجارية للعملاء والمزودين، مقسمة لـ Bookings و Orders وتوضح أسعار الحجز وحالته الأمنية.</div>
+                <div class="gallery-card-title" style="font-size: 14px; font-weight: 600; color: var(--text);">إدارة الحجوزات والرحلات (Reservations & Schedule)</div>
+                <div class="gallery-card-desc" style="font-size: 12px; color: var(--muted); margin-top: 4px;">لوحة متابعة حالة الحجوزات (قيد التأكيد، مؤكدة، مكتملة) مع تواريخ وأوقات الرحلات.</div>
               </div>
             </div>
+          </div>
+        </div>
 
-          </div> <!-- End of gallery container -->
+        <!-- Next Project Banner (Loops back to project 1) -->
+        <div class="case-study-next-project-banner">
+          <div>
+            <div class="next-project-eyebrow">Next Case Study</div>
+            <div class="next-project-name">Laundry SaaS Platform</div>
+          </div>
+          <button class="btn-next-project" data-next-project="laundry-saas">
+            استكشف المشروع التالي
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
 
-        </div> <!-- End of Vaygoo screenshots showcase area -->
-      </div> <!-- End of Vaygoo featured project card -->
-
-    </div> <!-- End of projects-grid -->
-
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Skills</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-grid">
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📱</div>
-        <div class="skill-card-title">Core & Flutter Web</div>
-        <ul class="skill-list">
-          <li>Flutter (Mobile / Desktop / Web)</li>
-          <li>Dart & Clean Architecture</li>
-          <li>Flutter Web SEO (seo, meta_seo)</li>
-          <li>flutter_screenutil (Responsive UI)</li>
-        </ul>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">⚙️</div>
-        <div class="skill-card-title">State & Navigation</div>
-        <ul class="skill-list">
-          <li>Cubit / Bloc</li>
-          <li>GetIt (DI)</li>
-          <li>go_router</li>
-          <li>Repository pattern</li>
-        </ul>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🗄️</div>
-        <div class="skill-card-title">Backend & Data</div>
-        <ul class="skill-list">
-          <li>Firebase (Auth, Firestore, Hosting)</li>
-          <li>Supabase</li>
-          <li>Isar (offline-first)</li>
-          <li>Manual JSON parsing</li>
-        </ul>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🚀</div>
-        <div class="skill-card-title">DevOps & Tools</div>
-        <ul class="skill-list">
-          <li>GitHub Actions CI/CD</li>
-          <li>Git branching workflows</li>
-          <li>Claude Code / Cline (AI dev)</li>
-          <li>ESC/POS thermal printing</li>
-        </ul>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🤖</div>
-        <div class="skill-card-title">AI Integration & Productivity</div>
-        <ul class="skill-list">
-          <li>AI-assisted coding & workflows</li>
-          <li>Prompt Engineering for coding</li>
-          <li>Code refactoring & optimization</li>
-          <li>Automating developer workflows</li>
-        </ul>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📈</div>
-        <div class="skill-card-title">Adaptive Engineering</div>
-        <ul class="skill-list">
-          <li>Flutter/Dart update migration</li>
-          <li>Continuous learning & upgrading</li>
-          <li>Keeping up with the latest updates</li>
-          <li>Enhancing code & development flow</li>
-        </ul>
-      </div>
+      </article>
 
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-label reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-wrapper">
-
-      <div class="contact-card main reveal">
-        <div>
-          <h3 class="contact-title">Let's build<br>something.</h3>
-          <p class="contact-sub">Available for freelance & full-time roles — mobile, desktop, and web.</p>
-        </div>
-        <div class="contact-links">
-
-          <a href="mailto:mohamed.zidanx99@gmail.com" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(79,140,255,0.15)">
-              <svg width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Email</div>
-              <div class="contact-link-value">mohamed.zidanx99@gmail.com</div>
-            </div>
-          </a>
-
-          <a href="https://github.com/muhamedxzidan" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(255,255,255,0.07)">
-              <svg width="16" height="16" fill="var(--text)" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">GitHub</div>
-              <div class="contact-link-value">github.com/muhamedxzidan</div>
-            </div>
-          </a>
-
-          <a href="https://www.linkedin.com/in/mohamedxzidan/" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(10,102,194,0.2)">
-              <svg width="16" height="16" fill="#4f8cff" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">LinkedIn</div>
-              <div class="contact-link-value">linkedin.com/in/mohamedxzidan</div>
-            </div>
-          </a>
-
-          <a href="https://wa.me/201210560229" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(37,211,102,0.15)">
-              <svg width="16" height="16" fill="#25D366" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.905-6.99C16.457 1.876 13.979.845 11.34.845 5.9.845 1.477 5.263 1.475 10.71c-.001 1.701.453 3.361 1.314 4.816l-.995 3.637 3.736-.979zm11.367-7.25c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">WhatsApp & Phone</div>
-              <div class="contact-link-value">+20 1210560229</div>
-            </div>
-          </a>
-
-          <a href="https://www.facebook.com/mohamedxzedan" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(24,119,242,0.15)">
-              <svg width="16" height="16" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </div>
-            <div>
-              <div class="contact-link-label">Facebook</div>
-              <div class="contact-link-value">facebook.com/mohamedxzedan</div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-      <div class="contact-side reveal">
-        <div class="side-card">
-          <div class="side-card-title">Availability</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--green)"></div> Freelance & Full-time Roles</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--accent)"></div> Mobile & Desktop apps</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--accent2)"></div> Flutter Web dashboards</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--amber)"></div> Suez, Egypt · Remote-friendly</div>
-        </div>
-        <div class="side-card">
-          <div class="side-card-title">What I build</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Laundry & shop management systems</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Admin dashboards (Flutter Web)</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Driver & field ops apps</div>
-          <div class="avail-row"><div class="avail-dot" style="background:var(--muted)"></div> Offline-first desktop tools</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <a href="#" class="footer-logo">MZ<span>.</span></a>
-  <span>Mohamed Zidan · Flutter Developer · Suez, Egypt</span>
-  <span>© 2025</span>
-</footer>
+  </div>
+</div>
 
 <!-- LIGHTBOX MODAL CONTAINER -->
 <div id="lightbox" class="lightbox-modal">

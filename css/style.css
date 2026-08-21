@@ -10,6 +10,7 @@
   --accent: #4f8cff;
   --accent2: #7c5cfc;
   --teal: #22d3b0;
+  --emerald: #10b981;
   --amber: #f5a623;
   --pink: #f472b6;
   --green: #4ade80;
@@ -29,6 +30,7 @@
   --accent: #1971c2;
   --accent2: #5c3eaf;
   --teal: #087f5b;
+  --emerald: #059669;
   --amber: #d9480f;
   --pink: #c2255c;
   --green: #2b8a3e;
@@ -835,6 +837,12 @@ footer {
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-tabs::-webkit-scrollbar {
+  display: none;
 }
 .gallery-tab {
   background: none;
@@ -847,6 +855,8 @@ footer {
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .gallery-tab:hover {
   color: var(--text);
@@ -863,6 +873,13 @@ footer {
   height: 2px;
   background: var(--accent);
   box-shadow: 0 0 10px var(--accent);
+}
+.project-card.theme-emerald .gallery-tab.active {
+  color: var(--emerald);
+}
+.project-card.theme-emerald .gallery-tab.active::after {
+  background: var(--emerald);
+  box-shadow: 0 0 10px var(--emerald);
 }
 
 .gallery-container {

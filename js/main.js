@@ -76,8 +76,9 @@ function initProjectTabs() {
  * Project Showcase Controller: Filtering, Case Study Modal, and Deep Linking
  */
 function initProjectShowcase() {
-  const projectOrder = ['laundry-saas', 'makhzani', 'miss-safaa', 'bookia', 'vaygoo'];
+  const projectOrder = ['cleancode-laundry', 'laundry-saas', 'makhzani', 'miss-safaa', 'bookia', 'vaygoo'];
   const projectMeta = {
+    'cleancode-laundry': { title: 'Clean Code Laundry (Astro)', icon: '✨', category: 'Live Web Platform' },
     'laundry-saas': { title: 'Laundry SaaS Platform', icon: '🧺', category: 'SaaS Platform' },
     'makhzani': { title: 'Makhzani (مخزني)', icon: '🏬', category: 'Enterprise ERP' },
     'miss-safaa': { title: 'Miss Safaa (صفاء زيدان)', icon: '📖', category: 'Flutter Web' },
@@ -108,8 +109,9 @@ function initProjectShowcase() {
       const filter = chip.getAttribute('data-filter');
 
       showcaseCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
+        const category = card.getAttribute('data-category') || '';
+        const categories = category.trim().split(/\s+/);
+        if (filter === 'all' || categories.includes(filter)) {
           card.classList.remove('hidden-by-filter');
         } else {
           card.classList.add('hidden-by-filter');

@@ -1572,6 +1572,11 @@ footer {
   box-shadow: 0 22px 50px rgba(249, 115, 22, 0.18);
 }
 
+.showcase-card.theme-astro:hover {
+  border-color: rgba(255, 93, 1, 0.55);
+  box-shadow: 0 22px 50px rgba(255, 93, 1, 0.2);
+}
+
 /* Showcase Teaser Mockup Window */
 .showcase-preview-frame {
   position: relative;
@@ -1632,6 +1637,7 @@ footer {
 .badge-teal { background: rgba(34, 211, 176, 0.25); color: #5eead4; border: 1px solid rgba(34, 211, 176, 0.4); }
 .badge-purple { background: rgba(124, 92, 252, 0.25); color: #c4b5fd; border: 1px solid rgba(124, 92, 252, 0.4); }
 .badge-orange { background: rgba(249, 115, 22, 0.25); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.4); }
+.badge-astro { background: rgba(255, 93, 1, 0.25); color: #ffb088; border: 1px solid rgba(255, 93, 1, 0.45); }
 
 .showcase-quick-explore-hint {
   display: inline-flex;
@@ -1811,6 +1817,55 @@ footer {
   background: rgba(79, 140, 255, 0.1);
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.btn-card-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-card-live:hover {
+  background: rgba(34, 197, 94, 0.22);
+  border-color: #4ade80;
+  color: #86efac;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.25);
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
 }
 
 /* ==========================================================================

@@ -3,30 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Zidan — Flutter Developer CV</title>
+<title>Mohamed Zidan — Junior Flutter & Front-End Developer CV</title>
 <style>
   @page {
     size: A4;
-    margin: 10mm 12mm 10mm 12mm;
+    margin: 8mm 12mm 8mm 12mm;
   }
   
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-variant-ligatures: none;
-    -webkit-font-variant-ligatures: none;
-    font-feature-settings: "liga" 0, "clig" 0;
-    hyphens: none;
-    -webkit-hyphens: none;
   }
 
   body {
     font-family: Arial, Helvetica, "Segoe UI", Roboto, sans-serif;
     color: #1a202c;
     background: #ffffff;
-    font-size: 9.1pt;
-    line-height: 1.38;
+    font-size: 9pt;
+    line-height: 1.36;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     text-rendering: optimizeLegibility;
@@ -46,26 +41,27 @@
     text-align: center;
     border-bottom: 1.5px solid #0f172a;
     padding-bottom: 6px;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
   }
 
   h1.name {
-    font-size: 20pt;
+    font-size: 19pt;
     font-weight: 700;
     color: #0f172a;
     line-height: 1.1;
     margin-bottom: 3px;
+    letter-spacing: 0.5px;
   }
 
   .role-title {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 600;
     color: #1d4ed8;
     margin-bottom: 4px;
   }
 
   .contact-bar {
-    font-size: 8.8pt;
+    font-size: 8.6pt;
     color: #475569;
     line-height: 1.35;
   }
@@ -77,22 +73,22 @@
 
   /* SECTIONS */
   section {
-    margin-bottom: 9px;
+    margin-bottom: 8px;
   }
 
   h2.section-heading {
-    font-size: 10pt;
+    font-size: 9.8pt;
     font-weight: 700;
     color: #0f172a;
     border-bottom: 1px solid #cbd5e1;
     padding-bottom: 2px;
     margin-bottom: 5px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
   }
 
   .summary-text {
-    font-size: 8.9pt;
+    font-size: 8.8pt;
     color: #334155;
     line-height: 1.4;
     text-align: left;
@@ -104,10 +100,10 @@
   }
 
   .skill-item {
-    font-size: 8.8pt;
+    font-size: 8.7pt;
     color: #334155;
-    line-height: 1.36;
-    margin-bottom: 2.5px;
+    line-height: 1.38;
+    margin-bottom: 2px;
   }
 
   .skill-item strong {
@@ -117,7 +113,7 @@
 
   /* EXPERIENCE & PROJECT ITEMS */
   .entry {
-    margin-bottom: 7px;
+    margin-bottom: 6px;
     page-break-inside: avoid;
     break-inside: avoid;
   }
@@ -130,7 +126,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 9.4pt;
+    font-size: 9.3pt;
   }
 
   .entry-title {
@@ -139,7 +135,7 @@
   }
 
   .entry-date {
-    font-size: 8.7pt;
+    font-size: 8.6pt;
     font-weight: 600;
     color: #475569;
     white-space: nowrap;
@@ -150,7 +146,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 8.7pt;
+    font-size: 8.5pt;
     color: #475569;
     margin-bottom: 2px;
   }
@@ -162,9 +158,9 @@
   }
 
   .entry-links {
-    font-size: 8.5pt;
+    font-size: 8.4pt;
     color: #1d4ed8;
-    margin-bottom: 2.5px;
+    margin-bottom: 2px;
   }
 
   .entry-links a {
@@ -178,38 +174,16 @@
   }
 
   ul.bullets li {
-    font-size: 8.8pt;
+    font-size: 8.6pt;
     color: #334155;
-    line-height: 1.38;
-    margin-bottom: 2px;
+    line-height: 1.36;
+    margin-bottom: 1.5px;
     text-align: left;
   }
 
   ul.bullets li strong {
     color: #0f172a;
     font-weight: 600;
-  }
-
-  ul.bullets li code {
-    font-family: Consolas, Monaco, monospace;
-    font-size: 8.2pt;
-    background: #f1f5f9;
-    padding: 0.5px 3px;
-    border-radius: 2px;
-    color: #0f172a;
-  }
-
-  .edu-desc {
-    font-size: 8.8pt;
-    color: #334155;
-    line-height: 1.38;
-    margin-top: 1.5px;
-    text-align: left;
-  }
-
-  .page-break {
-    page-break-before: always;
-    break-before: page;
   }
 
   /* PRINT OPTIMIZATION */
@@ -229,7 +203,7 @@
   <!-- HEADER -->
   <header>
     <h1 class="name">MOHAMED ZIDAN</h1>
-    <div class="role-title">Flutter Developer | Mobile, Desktop & Web</div>
+    <div class="role-title">Junior Flutter & Front-End Developer | Mobile, Desktop & Web</div>
     <div class="contact-bar">
       <span>mohamed.zidanx99@gmail.com</span>
       <span class="contact-sep">•</span>
@@ -250,7 +224,7 @@
     <section>
       <h2 class="section-heading">Professional Summary</h2>
       <p class="summary-text">
-        Results-driven <strong>Flutter Developer</strong> specialized in architecting and delivering scalable, high-performance cross-platform applications across <strong>Mobile (Android/iOS)</strong>, <strong>Windows Desktop</strong>, and <strong>Flutter Web</strong>. Expert in <strong>Clean Architecture (MVVM)</strong>, <strong>BLoC/Cubit</strong> state management, and building responsive, accessible UIs. Proven track record deploying live production apps to <strong>Google Play</strong> and web cloud infrastructure (<strong>Firebase, Supabase</strong>), implementing real-time data sync, atomic stock engines, and automated business workflows. Proficient in leveraging <strong>AI-assisted software engineering</strong> (prompt engineering, automated code refactoring, intelligent debugging) to maximize code maintainability, velocity, and delivery quality.
+        <strong>Junior Flutter & Front-End Developer</strong> with proven experience building and shipping cross-platform applications across <strong>Mobile (Android/iOS)</strong>, <strong>Windows Desktop</strong>, and <strong>Web</strong> (Flutter Web & Astro). Proficient in <strong>Clean Architecture (MVVM)</strong>, <strong>BLoC/Cubit</strong>, and integrating real-time backends (<strong>Firebase, Supabase</strong>). Track record deploying production applications to <strong>Google Play</strong> and live cloud hosting, with strong focus on performance, responsive UI, and clean, maintainable code.
       </p>
     </section>
 
@@ -258,12 +232,10 @@
     <section>
       <h2 class="section-heading">Technical Skills</h2>
       <div class="skills-list">
-        <p class="skill-item"><strong>Frameworks & Core:</strong> Flutter (Android, iOS, Web, Windows Desktop), Dart, OOP, SOLID Principles, Data Structures, Asynchronous Programming (Streams, Async/Await).</p>
+        <p class="skill-item"><strong>Languages & Frameworks:</strong> Dart, Flutter (Android, iOS, Web, Windows Desktop), Astro, JavaScript, HTML5, CSS3, OOP, SOLID Principles.</p>
         <p class="skill-item"><strong>Architecture & State Management:</strong> Clean Architecture (MVVM), Feature-First Modular Design, BLoC / Cubit, Repository Pattern, Dependency Injection (GetIt).</p>
-        <p class="skill-item"><strong>Backend & Cloud Platforms:</strong> Firebase (Cloud Firestore, Authentication, Firebase Hosting, Cloud Storage, Security Rules), Supabase (Auth, Realtime Streams, Storage, RPC Functions).</p>
-        <p class="skill-item"><strong>Networking & Offline Storage:</strong> Dio HTTP Client, Interceptors, RESTful APIs, Offline-First Architecture, Isar, Hive, SQLite, Encrypted Storage (Flutter Secure Storage).</p>
-        <p class="skill-item"><strong>Web & UI/UX Engineering:</strong> Flutter Web SEO (seo, meta_seo), Responsive Layouts (flutter_screenutil), Custom Paint, Rive Animations, Skeleton Loading (Skeletonizer).</p>
-        <p class="skill-item"><strong>DevOps, Tools & AI Workflows:</strong> Git, GitHub Actions CI/CD, GitFlow, Postman, VS Code, Google Play Console, AI-assisted engineering (Claude Code, Cursor, Prompt Engineering).</p>
+        <p class="skill-item"><strong>Backend, Cloud & Databases:</strong> Firebase (Cloud Firestore Streams, Authentication, Hosting, Storage), Supabase (Realtime, Auth), Isar, Hive, SQLite.</p>
+        <p class="skill-item"><strong>Networking, DevOps & Tools:</strong> RESTful APIs, Dio, Git / GitHub (GitFlow, PRs), Postman, Google Play Console, CI/CD, AI-assisted engineering.</p>
       </div>
     </section>
 
@@ -273,7 +245,7 @@
       
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Freelance Flutter Developer — Self-Employed</span>
+          <span class="entry-title">Freelance Flutter & Web Developer — Self-Employed</span>
           <span class="entry-date">2026 – Present</span>
         </div>
         <div class="entry-sub">
@@ -281,24 +253,24 @@
           <span>Remote · Suez, Egypt</span>
         </div>
         <ul class="bullets">
-          <li>Architected, developed, and deployed multi-platform production apps (Mobile, Web, Desktop) for enterprise clients and businesses.</li>
-          <li>Engineered real-time cloud integrations using <strong>Firebase & Supabase</strong> with secure multi-tenant role-based access control (RBAC).</li>
-          <li>Delivered pixel-perfect, SEO-optimized web platforms with dynamic OpenGraph meta engines, boosting search discoverability and conversion rates.</li>
+          <li>Architected and deployed multi-platform production apps (Mobile, Web, Desktop) for enterprise clients and businesses.</li>
+          <li>Integrated real-time cloud services using <strong>Firebase & Supabase</strong> with secure role-based access control (RBAC).</li>
+          <li>Built high-performance, SEO-optimized web platforms delivering fast Core Web Vitals and automated WhatsApp lead flows.</li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-header">
           <span class="entry-title">Flutter Developer Trainee — EraaSoft</span>
-          <span class="entry-date">11/2025 – Present</span>
+          <span class="entry-date">11/2025 – 04/2026</span>
         </div>
         <div class="entry-sub">
           <span class="entry-subtitle">Professional Software Development Track</span>
           <span>Remote · Cairo, Egypt</span>
         </div>
         <ul class="bullets">
-          <li>Developed production-level Flutter applications utilizing <strong>MVVM Clean Architecture</strong> and <strong>BLoC/Cubit</strong> under senior engineering mentorship.</li>
-          <li>Implemented robust RESTful API integration pipelines with token refresh interceptors, automated error handling, and offline caching.</li>
+          <li>Built production-standard Flutter applications applying <strong>MVVM Clean Architecture</strong> and <strong>BLoC/Cubit</strong> state management.</li>
+          <li>Engineered resilient REST API integration pipelines with Dio, JWT token refresh interceptors, and offline caching.</li>
         </ul>
       </div>
     </section>
@@ -310,85 +282,50 @@
       <!-- Vaygoo -->
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Vaygoo — On-Demand Tourism & Excursion Booking Platform</span>
+          <span class="entry-title">Vaygoo — On-Demand Tourism Booking Ecosystem</span>
           <span class="entry-date">2026 – Present</span>
         </div>
         <div class="entry-links">
           <strong>Live Web:</strong> <a href="https://www.vaygoo.com" target="_blank">www.vaygoo.com</a> &nbsp;|&nbsp;
-          <strong>Google Play:</strong> <a href="https://play.google.com/store/apps/details?id=com.vaygoo.travel" target="_blank">play.google.com/store/apps/details?id=com.vaygoo.travel</a>
+          <strong>Google Play:</strong> <a href="https://play.google.com/store/apps/details?id=com.vaygoo.travel" target="_blank">Google Play Store</a>
         </div>
         <ul class="bullets">
-          <li>Built a full-featured cross-platform ecosystem (Google Play App + Web Portal + Admin Dashboard) for on-demand safari and excursion bookings.</li>
-          <li>Integrated <strong>Supabase Realtime</strong> for instant booking updates, provider payout management, and bilingual localization (Arabic/English).</li>
-          <li>Engineered OAuth authentication (Google & Facebook), <strong>Google Maps</strong> geolocation API, and Clean Architecture with Cubit state management.</li>
-          <li>Led collaborative team development using <strong>GitFlow</strong>, PR workflows, automated linting, and strict code review standards.</li>
+          <li>Published a production travel booking ecosystem featuring a mobile customer app and web management portal.</li>
+          <li>Integrated <strong>Supabase Realtime</strong> for live booking status, Google & Facebook OAuth, and <strong>Google Maps</strong> geolocation.</li>
+          <li>Collaborated in a remote engineering team adhering to <strong>GitFlow</strong>, pull-request reviews, and Clean Architecture with Cubit.</li>
         </ul>
       </div>
 
-      <!-- Makhzani ERP -->
+      <!-- Laundry SaaS Platform -->
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Makhzani — Enterprise Multi-Warehouse & Inventory Audit ERP</span>
-          <span class="entry-date">2026 – Present</span>
+          <span class="entry-title">Laundry SaaS Platform — Multi-Tenant Management System</span>
+          <span class="entry-date">2026</span>
+        </div>
+        <div class="entry-sub">
+          <span class="entry-subtitle">Multi-Platform Ecosystem (Super Admin Web + Cashier Panel + Delivery Mobile App)</span>
+          <span>Production SaaS</span>
         </div>
         <ul class="bullets">
-          <li>Architected an enterprise-grade ERP system for multi-branch stock control, catalog management, supplier returns, and physical audit sessions.</li>
-          <li>Engineered an <strong>Atomic Stock Engine</strong> with real-time inventory balances, low-stock threshold triggers, and zero negative-balance risks.</li>
-          <li>Built a <strong>Physical Inventory Audit</strong> module calculating instant variance between counted stock and system balances with one-click reconciliation.</li>
-          <li>Implemented offline-first caching via <strong>Isar & SharedPreferences</strong>, Clean Architecture with <strong>Bloc/Cubit</strong>, and thermal receipt printing.</li>
+          <li>Engineered a multi-tenant SaaS platform managing branch subscriptions, staff roles, and order fulfillment.</li>
+          <li>Built live order dispatching powered by <strong>Cloud Firestore Real-time Streams</strong> for instant cashier updates without reload.</li>
+          <li>Automated digital invoicing with instant, pre-formatted customer delivery receipts dispatched directly via WhatsApp.</li>
         </ul>
       </div>
 
-      <!-- Miss Safaa -->
-      <div class="entry page-break">
+      <!-- Clean Code Laundry -->
+      <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Miss Safaa — Interactive Educational Platform (Flutter Web)</span>
+          <span class="entry-title">Clean Code Laundry — Commercial Astro Web Platform</span>
           <span class="entry-date">2026</span>
         </div>
         <div class="entry-links">
-          <strong>Live Platform:</strong> <a href="https://miss-safaa.web.app/" target="_blank">miss-safaa.web.app</a>
+          <strong>Live Website:</strong> <a href="https://cleancode-laundry.com/" target="_blank">cleancode-laundry.com</a>
         </div>
         <ul class="bullets">
-          <li>Built and deployed a production <strong>Flutter Web</strong> educational platform showcasing interactive children's learning publications.</li>
-          <li>Engineered an advanced <strong>SEO & OpenGraph engine</strong> using <code>meta_seo</code> and <code>seo</code> for dynamic meta tags and search engine indexing.</li>
-          <li>Implemented 100% responsive multi-viewport layouts via <code>flutter_screenutil</code> adaptable to mobile, tablet, and desktop screens.</li>
-          <li>Integrated smooth scroll animations with <code>visibility_detector</code> and automated WhatsApp order dispatching on <strong>Firebase Hosting</strong>.</li>
-        </ul>
-      </div>
-
-      <!-- Laundry SaaS -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Multi-Branch Laundry Management SaaS Platform</span>
-          <span class="entry-date">2026</span>
-        </div>
-        <ul class="bullets">
-          <li>Engineered a full-stack multi-branch SaaS platform comprising 4 integrated clients: Windows POS app, Admin panel, Owner dashboard, and Driver app.</li>
-          <li>Implemented real-time bidirectional data synchronization via <strong>Cloud Firestore</strong>, automated WhatsApp billing, and treasury ledger reports.</li>
-        </ul>
-      </div>
-
-      <!-- Bookia -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Bookia — Online Bookstore Mobile Application</span>
-          <span class="entry-date">03/2026 – 05/2026</span>
-        </div>
-        <ul class="bullets">
-          <li>Developed a modular bookstore app following Feature-First Clean Architecture with Cubit (Catalog, Wishlist, Cart, Checkout, Order Tracking).</li>
-          <li>Integrated RESTful APIs via <strong>Dio</strong> with JWT token refresh interceptors and comprehensive status-code error handling.</li>
-          <li>Implemented encrypted local storage with <code>flutter_secure_storage</code> and integrated fluid <strong>Rive</strong> vector animations.</li>
-        </ul>
-      </div>
-
-      <!-- Taskati -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Taskati — Offline Productivity & Task Management App</span>
-          <span class="entry-date">12/2025 – 2026</span>
-        </div>
-        <ul class="bullets">
-          <li>Engineered an offline task scheduler featuring local database persistence with <strong>Hive</strong>, custom date/time pickers, and clean modular UI.</li>
+          <li>Designed and built a fast commercial web platform utilizing <strong>Astro Islands Architecture</strong> (Zero-JS by default).</li>
+          <li>Implemented an interactive client-side <strong>Carpet Price Calculator</strong> for real-time area (L × W) and discount validation.</li>
+          <li>Integrated automated WhatsApp lead generation and structured <strong>LocalBusiness Schema.org</strong> SEO markup.</li>
         </ul>
       </div>
     </section>
@@ -399,30 +336,30 @@
       
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Code Smarter With AI — Professional Certificate</span>
-          <span class="entry-date">08/2026</span>
-        </div>
-        <div class="entry-sub">
-          <span class="entry-subtitle">Instructor: Eng. Usama Elgendy (Software Engineer)</span>
-          <span>18 Total Hours</span>
-        </div>
-        <p class="edu-desc">
-          Completed intensive specialized training on AI-assisted software engineering, focusing on developer prompt engineering, AI-driven code refactoring, intelligent automated debugging, and integrating advanced AI workflows to accelerate development lifecycle and code quality.
-        </p>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
           <span class="entry-title">Flutter Developer Diploma — EraaSoft</span>
           <span class="entry-date">11/2025 – 04/2026</span>
         </div>
         <div class="entry-sub">
-          <span class="entry-subtitle">Comprehensive Software Engineering Track</span>
+          <span class="entry-subtitle">Comprehensive Cross-Platform Software Engineering Track</span>
           <span>Remote · Cairo, Egypt</span>
         </div>
-        <p class="edu-desc">
-          Completed a comprehensive multi-platform software engineering curriculum covering Dart, OOP, SOLID principles, Clean Architecture (MVVM), BLoC/Cubit, REST APIs, Firebase integration, and cross-platform production deployments.
-        </p>
+        <ul class="bullets">
+          <li>Completed intensive engineering coursework covering Dart, OOP, Clean Architecture (MVVM), BLoC/Cubit, REST APIs, and Firebase.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Code Smarter With AI — Professional Certificate</span>
+          <span class="entry-date">08/2026</span>
+        </div>
+        <div class="entry-sub">
+          <span class="entry-subtitle">Instructor: Eng. Usama Elgendy · Software Engineer</span>
+          <span>18 Training Hours</span>
+        </div>
+        <ul class="bullets">
+          <li>Trained on modern AI-assisted workflows: prompt engineering, automated debugging, and architectural code refactoring.</li>
+        </ul>
       </div>
     </section>
   </main>
